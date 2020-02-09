@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".StudentAccount">
+
+    <Button
+        android:id="@+id/classes"
+        android:layout_width="122dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="116dp"
+        android:background="#329BF0"
+        android:text="Classes"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/activities"
+        android:layout_width="119dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="44dp"
+        android:background="#329BF0"
+        android:text="Activities"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classes" />
+
+    <Button
+        android:id="@+id/drive"
+        android:layout_width="116dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="44dp"
+        android:background="#329BF0"
+        android:text="Google Drive"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activities" />
+
+    <Button
+        android:id="@+id/library"
+        android:layout_width="116dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="40dp"
+        android:background="#329BF0"
+        android:text="Library"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drive" />
+
+    <Button
+        android:id="@+id/event"
+        android:layout_width="114dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="44dp"
+        android:background="#329BF0"
+        android:text="Events"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/library" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">IutGuide</string>
+    <string-array name="class_List">
+        <item> CSE 4341 </item>
+        <item> CSE 4303 </item>
+        <item> CSE 4304 </item>
+        <item> CSE 4309 </item>
+    </string-array>
+    <string-array name="event_list">
+        <item> Industrial Collaboration (08 February) </item>
+        <item> IUTDS Freshers (10 February) </item>
+        <item> IUT CBS Freshers (12 February) </item>
+        <item> ICT FEST (3 March) </item>
+    </string-array>
+</resources>
