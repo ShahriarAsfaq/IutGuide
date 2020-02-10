@@ -9,20 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Book_List"></activity>
-        <activity android:name=".HomePage" />
+        <activity android:name=".LogIn"></activity>
+        <activity android:name=".Book_List" />
+        <activity android:name=".HomePage" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".Events" />
         <activity android:name=".Library" />
         <activity android:name=".GoogleDrive" />
         <activity android:name=".Activities" />
         <activity android:name=".Classes" />
-        <activity android:name=".StudentAccount">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".StudentAccount"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
     </application>
 
 </manifest>
