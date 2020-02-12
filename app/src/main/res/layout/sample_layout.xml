@@ -5,9 +5,9 @@
 
     <TextView
         android:id="@+id/listText"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#00A51414"
-        android:textSize="36mm" />
+        android:textSize="36dp" />
 
 </LinearLayout>

@@ -13,9 +13,15 @@
         <item> ICT FEST (3 March) </item>
     </string-array>
     <string-array name="event_list123">
-        <item> Industrial Collaboration (08 February) </item>
-        <item> IUTDS Freshers (8 February) </item>
-        <item> IUT CBS Freshers (19 February) </item>
-        <item> ICT FEST (1 March) </item>
+    <item> Industrial Collaboration (08 February) </item>
+    <item> IUTDS Freshers (8 February) </item>
+    <item> IUT CBS Freshers (19 February) </item>
+    <item> ICT FEST (1 March) </item>
+</string-array>
+    <string-array name="country_Name">
+        <item> BANGLADESH</item>
+        <item> INDIA </item>
+        <item> SRI LANKA </item>
+        <item> AUSTRALIA </item>
     </string-array>
 </resources>
