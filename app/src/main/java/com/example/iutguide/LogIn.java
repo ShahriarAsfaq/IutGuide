@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -27,5 +28,12 @@ public class LogIn extends AppCompatActivity {
         password=(EditText) findViewById(R.id.password);
         remember_me=(CheckBox)findViewById(R.id.rememberme);
 
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LogIn.this,SignUp.class);
+                startActivity(intent);
+            }
+        });
     }
 }
