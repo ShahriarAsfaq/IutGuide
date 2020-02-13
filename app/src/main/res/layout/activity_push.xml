@@ -4,20 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_push">
+    tools:context=".activity_push"
+    android:orientation="vertical"
+    android:layout_margin="30dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uthsha"
+            android:textSize="30dp"
+            ></Button>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dihan"
+            android:textSize="30dp"
+            ></Button>
+
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOVE"
+        android:textSize="30dp"
+        android:layout_marginLeft="80dp"
+        ></Button>
 
 
 
-    <ListView
-        android:id="@+id/lid1"
-        android:listSelector="#fff1"
-        android:dividerHeight="2dp"
-        android:divider="#ff22"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
-    </ListView>
 
 </LinearLayout>
