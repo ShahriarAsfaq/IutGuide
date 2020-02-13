@@ -20,7 +20,7 @@ public class HomePage extends AppCompatActivity {
         teacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(HomePage.this,LogIn.class);
+                Intent intent=new Intent(HomePage.this,teacheraccount.class);
                 startActivity(intent);
             }
         });
@@ -31,5 +31,6 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

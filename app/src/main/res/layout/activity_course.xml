@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Course">
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="256dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="261dp"
+        android:text="CSE 4341 (SWE 18)"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="248dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="63dp"
+        android:text=" CSE 4109 (CSE 19)"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
