@@ -13,7 +13,6 @@ public class activity_push extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_push);
-        listView=findViewById(R.id.lid1);
         String [] countryName=getResources().getStringArray(R.array.country_Name);
         ArrayAdapter<String>  adapter=new ArrayAdapter<String>(activity_push.this,R.layout.sample_layout,R.id.listText,countryName);
         listView.setAdapter(adapter);
