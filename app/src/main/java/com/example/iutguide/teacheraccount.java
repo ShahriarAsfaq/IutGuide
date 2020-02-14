@@ -18,7 +18,7 @@ public class teacheraccount extends AppCompatActivity {
         setContentView(R.layout.activity_teacheraccount);
 
         TeacherEvents.findViewById(R.id.teacherEvents);
-        TeacherEvents.setOnClickListener(new View.OnClickListener() {
+        TeacherEvents.setOnClickListener(new  View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(teacheraccount.this,Events.class);
