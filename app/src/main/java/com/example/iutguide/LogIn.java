@@ -25,7 +25,7 @@ public class LogIn extends AppCompatActivity {
     private CheckBox remember_me;
     private FirebaseAuth mAuth;
 
-
+    protected static int num;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,12 @@ public class LogIn extends AppCompatActivity {
          @Override
          public void onClick(View view) {
              loginApproval();
+         }
+     });
+     remember_me.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             num=1;
          }
      });
     }
@@ -73,5 +79,8 @@ public class LogIn extends AppCompatActivity {
 
             }
         });
+    }
+    int checkbox(){
+       return num;
     }
 }

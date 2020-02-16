@@ -35,20 +35,23 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(HomePage.this,LogIn.class);
-                startActivity(intent);
-            }
-        });
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(HomePage.this,SignUp.class);
-                startActivity(intent);
-            }
-        });
+        LogIn login1=new LogIn();
+        if(login1.checkbox()!=1) {
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(HomePage.this, LogIn.class);
+                    startActivity(intent);
+                }
+            });
 
+            signup.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(HomePage.this, SignUp.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }
