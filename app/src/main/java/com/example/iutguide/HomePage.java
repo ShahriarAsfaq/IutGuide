@@ -10,6 +10,8 @@ import android.widget.Button;
 public class HomePage extends AppCompatActivity {
     private Button teacher;
     private Button student;
+    private Button login;
+    private Button signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,8 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         teacher = (Button) findViewById(R.id.teacher);
         student = (Button) findViewById(R.id.student);
+        login = (Button) findViewById(R.id.login);
+        signup = (Button) findViewById(R.id.signup);
         teacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,6 +32,20 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(HomePage.this,StudentAccount.class);
+                startActivity(intent);
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomePage.this,LogIn.class);
+                startActivity(intent);
+            }
+        });
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomePage.this,SignUp.class);
                 startActivity(intent);
             }
         });
