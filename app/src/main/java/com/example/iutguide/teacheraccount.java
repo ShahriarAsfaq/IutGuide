@@ -17,7 +17,7 @@ public class teacheraccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacheraccount);
 
-        TeacherEvents.findViewById(R.id.teacherEvents);
+        TeacherEvents=(Button)findViewById(R.id.teacherevents);
         TeacherEvents.setOnClickListener(new  View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,7 +26,7 @@ public class teacheraccount extends AppCompatActivity {
             }
         });
 
-        Courses.findViewById(R.id.courses);
+        Courses=(Button)findViewById(R.id.courses);
         Courses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

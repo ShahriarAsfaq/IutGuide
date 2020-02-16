@@ -29,7 +29,7 @@
         android:layout_gravity="center"
         ></Button>
     <Button
-        android:id="@+id/teacherEvents"
+        android:id="@+id/teacherevents"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Events"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:textSize="24dp"
         android:text="CSE 18 Quiz (3:15 pm 12.02.20)"
-        />`
+        />
 
 
 </LinearLayout>

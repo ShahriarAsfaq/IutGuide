@@ -7,7 +7,7 @@
         android:id="@+id/listText"
         android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="36dp" />
+        android:layout_height="80dp"
+        android:textSize="24sp" />
 
 </LinearLayout>
