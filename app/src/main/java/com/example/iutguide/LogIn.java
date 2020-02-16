@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LogIn extends AppCompatActivity implements View.OnClickListener {
+public class LogIn extends AppCompatActivity {
     Intent intent = getIntent();
     private Button login;
     private Button signup;
@@ -29,29 +29,29 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_log_in);
+        mAuth = FirebaseAuth.getInstance();
         login=(Button)findViewById(R.id.login);
         signup=(Button)findViewById(R.id.signup);
         name=(EditText) findViewById(R.id.name);
         password=(EditText) findViewById(R.id.password);
         remember_me=(CheckBox)findViewById(R.id.rememberme);
-
-
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.signup:
-               Intent intent=new Intent(getApplicationContext(),SignUp.class);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(LogIn.this,SignUp.class);
                 startActivity(intent);
-               break;
-            case R.id.login:
-                loginApproval();
-               break;
-        }
+            }
+        });
+     login.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             loginApproval();
+         }
+     });
     }
+
+
 
     private void loginApproval() {
         String email=name.getText().toString().trim();
@@ -63,7 +63,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(task.isSuccessful()){
-                    Intent intent=new Intent(getApplicationContext(),HomePage.class);
+                    Intent intent=new Intent(LogIn.this,HomePage.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }
