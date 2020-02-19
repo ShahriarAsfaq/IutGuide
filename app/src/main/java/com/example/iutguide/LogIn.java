@@ -60,25 +60,27 @@ public class LogIn extends AppCompatActivity {
 
 
     private void loginApproval() {
-        String email=name.getText().toString().trim();
-        String password1=password.getText().toString().trim();
+        String email = name.getText().toString().trim();
+        String password1 = password.getText().toString().trim();
+        if (email.length()!=0 && password1.length()!=0) {
+            mAuth.signInWithEmailAndPassword(email, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
 
+                    if (task.isSuccessful()) {
+                        Intent intent = new Intent(LogIn.this, HomePage.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_SHORT).show();
+                    }
 
-        mAuth.signInWithEmailAndPassword(email,password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                if(task.isSuccessful()){
-                    Intent intent=new Intent(LogIn.this,HomePage.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
                 }
-                else {
-                    Toast.makeText(getApplicationContext(),"Invalid email or password", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
+            });
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_SHORT).show();
+        }
     }
     int checkbox(){
        return num;
