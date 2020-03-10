@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,5 +39,6 @@ public void saveData(){
         String Key=databaseReference.push().getKey();
         AddCourseFirebase addCourseFirebase=new AddCourseFirebase(Name);
         databaseReference.child(Key).setValue(addCourseFirebase);
+    Toast.makeText(getApplicationContext(),"success",Toast.LENGTH_LONG).show();
 }
 }
