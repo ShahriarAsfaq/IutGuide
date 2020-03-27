@@ -17,13 +17,14 @@
 
         ></TextView>
 
-    <ListView
-        android:id="@+id/eventlist"
-        android:dividerHeight="2dp"
+    <TextView
+        android:id="@+id/event1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@color/cardview_dark_background"
-        android:listSelector="#a1f9da"
+        android:layout_height="45dp" />
 
-        ></ListView>
+    <TextView
+        android:id="@+id/event2"
+        android:layout_width="match_parent"
+        android:layout_height="49dp" />
+
 </LinearLayout>

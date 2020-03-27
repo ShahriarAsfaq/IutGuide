@@ -1,29 +1,51 @@
 package com.example.iutguide;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
 public class Events extends AppCompatActivity {
     Intent intent= getIntent();
-    ListView eventlist;
-    DatabaseReference event_List;
+    TextView event1;
+    TextView event2;
+    DatabaseReference eventData ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-        eventlist=(ListView)findViewById(R.id.eventlist);
-        //databaseReference= FirebaseDatabase.getInstance().getReference("Event1");
-        event_List= FirebaseDatabase.getInstance().getReference("Event1");
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Events.this,R.layout.sample_layout,R.id.listText, (List<String>) event_List);
-        eventlist.setAdapter(adapter);
+       event1=(TextView)findViewById(R.id.event1);
+       event2=(TextView)findViewById(R.id.event2);
+       eventData = FirebaseDatabase.getInstance().getReference();
+       //eventData.setValue("hello world");
+       eventData.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
+                   EventDatabase eventDatabase = dataSnapshot.getValue(EventDatabase.class);
+               }
+
+               //event1.setText();
+           }
+
+           @Override
+           public void onCancelled(@NonNull DatabaseError databaseError) {
+
+           }
+       });
+
     }
 }
