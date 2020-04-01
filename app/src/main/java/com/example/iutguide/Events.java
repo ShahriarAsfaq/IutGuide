@@ -21,6 +21,7 @@ public class Events extends AppCompatActivity {
     Intent intent= getIntent();
     TextView event1;
     TextView event2;
+    TextView event3;
     DatabaseReference eventData ;
 
     @Override
