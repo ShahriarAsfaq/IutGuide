@@ -29,16 +29,17 @@ public class Events extends AppCompatActivity {
         setContentView(R.layout.activity_events);
        event1=(TextView)findViewById(R.id.event1);
        event2=(TextView)findViewById(R.id.event2);
-       eventData = FirebaseDatabase.getInstance().getReference();
+       eventData = FirebaseDatabase.getInstance().getReference("eventu");
        //eventData.setValue("hello world");
        eventData.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
-                   EventDatabase eventDatabase = dataSnapshot.getValue(EventDatabase.class);
-               }
+               //for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
+                  // EventDatabase eventDatabase = dataSnapshot.getValue(EventDatabase.class);
+              // }
+               String value = dataSnapshot.getValue(String.class);
 
-               //event1.setText();
+               event1.setText(value);
            }
 
            @Override
