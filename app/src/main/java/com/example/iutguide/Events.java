@@ -30,7 +30,7 @@ public class Events extends AppCompatActivity {
         setContentView(R.layout.activity_events);
        event1=(TextView)findViewById(R.id.event1);
        event2=(TextView)findViewById(R.id.event2);
-       eventData = FirebaseDatabase.getInstance().getReference("eventu");
+       eventData = FirebaseDatabase.getInstance().getReference("Event/event1");
        //eventData.setValue("hello world");
        eventData.addValueEventListener(new ValueEventListener() {
            @Override
