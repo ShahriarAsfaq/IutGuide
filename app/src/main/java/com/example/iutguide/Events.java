@@ -22,7 +22,9 @@ public class Events extends AppCompatActivity {
     TextView event1;
     TextView event2;
     TextView event3;
-    DatabaseReference eventData ;
+    DatabaseReference eventData1 ;
+    DatabaseReference eventData2 ;
+    DatabaseReference eventData3 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +32,10 @@ public class Events extends AppCompatActivity {
         setContentView(R.layout.activity_events);
        event1=(TextView)findViewById(R.id.event1);
        event2=(TextView)findViewById(R.id.event2);
-       eventData = FirebaseDatabase.getInstance().getReference("Event/event1");
+       event3=(TextView)findViewById(R.id.event3);
+       eventData1 = FirebaseDatabase.getInstance().getReference("Event/event1");
        //eventData.setValue("hello world");
-       eventData.addValueEventListener(new ValueEventListener() {
+       eventData1.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                //for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
@@ -48,6 +51,40 @@ public class Events extends AppCompatActivity {
 
            }
        });
+
+        eventData2 = FirebaseDatabase.getInstance().getReference("Event/event2");
+
+        eventData2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String value = dataSnapshot.getValue(String.class);
+
+                event2.setText(value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        eventData3 = FirebaseDatabase.getInstance().getReference("Event/event3");
+
+        eventData3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String value = dataSnapshot.getValue(String.class);
+
+                event3.setText(value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 }

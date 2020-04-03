@@ -20,11 +20,19 @@
     <TextView
         android:id="@+id/event1"
         android:layout_width="match_parent"
-        android:layout_height="45dp" />
+        android:layout_height="70dp"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/event2"
         android:layout_width="match_parent"
-        android:layout_height="49dp" />
+        android:layout_height="70dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/event3"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:textSize="24sp" />
 
 </LinearLayout>
