@@ -68,7 +68,7 @@ public class LogIn extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if (task.isSuccessful()) {
-                        Intent intent = new Intent(LogIn.this, HomePage.class);
+                        Intent intent = new Intent(LogIn.this, TeacherLogin.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     } else {

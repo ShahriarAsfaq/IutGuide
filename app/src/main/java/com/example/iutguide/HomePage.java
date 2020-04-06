@@ -21,20 +21,8 @@ public class HomePage extends AppCompatActivity {
         student = (Button) findViewById(R.id.student);
         login = (Button) findViewById(R.id.login);
         signup = (Button) findViewById(R.id.signup);
-        teacher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(HomePage.this,teacheraccount.class);
-                startActivity(intent);
-            }
-        });
-        student.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(HomePage.this,StudentAccount.class);
-                startActivity(intent);
-            }
-        });
+
+
         LogIn login1=new LogIn();
         if(login1.checkbox()!=1) {
             login.setOnClickListener(new View.OnClickListener() {
