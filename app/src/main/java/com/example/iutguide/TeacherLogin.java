@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class TeacherLogin extends AppCompatActivity {
+    Intent intent= getIntent();
     Button signout1;
     Button Teacher;
     FirebaseAuth sOUT;

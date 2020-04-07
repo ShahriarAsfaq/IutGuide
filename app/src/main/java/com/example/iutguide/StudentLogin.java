@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class StudentLogin extends AppCompatActivity {
+    Intent intent= getIntent();
     Button signout2;
     Button student;
     FirebaseAuth sout;
