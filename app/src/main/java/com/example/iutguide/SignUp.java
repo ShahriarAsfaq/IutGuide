@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,8 +20,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import static com.google.android.gms.common.internal.safeparcel.SafeParcelable.NULL;
 
 public class SignUp extends AppCompatActivity {
     Intent intent = getIntent();
@@ -36,6 +36,8 @@ public class SignUp extends AppCompatActivity {
     CheckBox StudentVarification;
     DatabaseReference teacherData;
     DatabaseReference studentData;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +61,18 @@ public class SignUp extends AppCompatActivity {
         Teachervarification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name= Name.getText().toString().trim();
-                String id= ID.getText().toString().trim();
-                String department= Department.getText().toString().trim();
-                String contracts= contract.getText().toString().trim();
-                String program= Program.getText().toString().trim();
+                String name= Name.getText().toString();
+                String id= ID.getText().toString();
+                String department= Department.getText().toString();
+                String contracts= contract.getText().toString();
+                String program= Program.getText().toString();
 
                 teacherData=FirebaseDatabase.getInstance().getReference("Teacher");
-                teacherData.child("ID").setValue(id);
-                teacherData.child("Name").setValue(name);
-                teacherData.child("Department").setValue(department);
-                teacherData.child("Contract").setValue(contracts);
+                //teacherData.child("ID").setValue(id);
+                teacherData.child(id).child("Name").setValue(name);
+                teacherData.child(id).child("Department").setValue(department);
+                teacherData.child(id).child("Contract").setValue(contracts);
+
 
             }
         });
@@ -84,11 +87,11 @@ public class SignUp extends AppCompatActivity {
                 String program= Program.getText().toString().trim();
 
                 studentData=FirebaseDatabase.getInstance().getReference("Student");
-                studentData.child("ID").setValue(id);
-                studentData.child("Name").setValue(name);
-                studentData.child("Department").setValue(department);
-                studentData.child("Program").setValue(program);
-                studentData.child("Contract").setValue(contracts);
+                //studentData.child("ID").setValue(id);
+                studentData.child(id).child("Name").setValue(name);
+                studentData.child(id).child("Department").setValue(department);
+                studentData.child(id).child("Program").setValue(program);
+                studentData.child(id).child("Contract").setValue(contracts);
 
             }
         });

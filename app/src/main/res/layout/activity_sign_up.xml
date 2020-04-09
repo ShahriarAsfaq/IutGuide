@@ -8,20 +8,6 @@
     android:layout_margin="30dp"
     android:orientation="vertical">
 
-    <CheckBox
-        android:id="@+id/TeacherVarification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Teacher"
-        android:textSize="22sp" />
-
-    <CheckBox
-        android:id="@+id/StudentVarification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Student"
-        android:textSize="22sp" />
-
     <EditText
         android:id="@+id/signUpName"
         android:layout_width="match_parent"
@@ -77,6 +63,20 @@
         android:hint="Enter new password"
         android:textSize="24dp"/>
 
+    <CheckBox
+        android:id="@+id/TeacherVarification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Teacher"
+        android:textSize="22sp" />
+
+    <CheckBox
+        android:id="@+id/StudentVarification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student"
+        android:textSize="22sp" />
+
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
@@ -86,7 +86,6 @@
         android:textStyle="bold"
         android:layout_gravity="center"
         ></Button>
-
 
 
 </LinearLayout>
