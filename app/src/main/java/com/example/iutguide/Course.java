@@ -1,36 +1,72 @@
 package com.example.iutguide;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
-public class Course extends AppCompatActivity {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class  Course extends AppCompatActivity {
     Intent intent= getIntent();
-    private Button coursedetails;
-    private Button addCourse;
+   private ListView listView;
+   Button CourseB1;
+   private List<AddCourseFirebase> addCourseFirebaseList;
+   private CourseAdapter courseAdapter;
+   DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
-        addCourse=(Button)findViewById(R.id.addCourse);
-        addCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(Course.this,addCourse.class);
-                startActivity(intent);
-            }
-        });
-        coursedetails=(Button)findViewById(R.id.button5);
-        coursedetails.setOnClickListener(new View.OnClickListener() {
+        mDatabase=FirebaseDatabase.getInstance().getReference("Course");
+
+        addCourseFirebaseList=new ArrayList<>();
+
+        courseAdapter=new CourseAdapter(Course.this,addCourseFirebaseList);
+        listView=findViewById(R.id.courseL1);
+        CourseB1=findViewById(R.id.CourseB);
+        CourseB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent in=new Intent(Course.this,CourseDetails.class);
-                startActivity(in);
+                Intent intent = new Intent(Course.this,addCourse.class);
+                startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                addCourseFirebaseList.clear();
+                for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+                    AddCourseFirebase addCourseFirebase=dataSnapshot1.getValue(AddCourseFirebase.class);
+                    addCourseFirebaseList.add(addCourseFirebase);
+                }
+                listView.setAdapter(courseAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        super.onStart();
     }
 }
