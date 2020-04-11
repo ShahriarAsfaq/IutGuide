@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class StudentAccount extends AppCompatActivity {
+    Intent intent= getIntent();
     private Button classes;
     private Button activity;
     private Button drive;

@@ -5,16 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
     Intent intent = getIntent();
@@ -27,6 +32,12 @@ public class SignUp extends AppCompatActivity {
     private EditText contract;
     private Button SignUp;
     private FirebaseAuth mAuth;
+    CheckBox Teachervarification;
+    CheckBox StudentVarification;
+    DatabaseReference teacherData;
+    DatabaseReference studentData;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +52,50 @@ public class SignUp extends AppCompatActivity {
          Password = (EditText)findViewById(R.id.signupPassword);
          contract = (EditText)findViewById(R.id.signUpContract);
         SignUp = (Button) findViewById(R.id.signUpButton);
+        Teachervarification=(CheckBox)findViewById(R.id.TeacherVarification);
+        StudentVarification=(CheckBox)findViewById(R.id.StudentVarification);
+
+
+
+
+        Teachervarification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name= Name.getText().toString();
+                String id= ID.getText().toString();
+                String department= Department.getText().toString();
+                String contracts= contract.getText().toString();
+                String program= Program.getText().toString();
+
+                teacherData=FirebaseDatabase.getInstance().getReference("Teacher");
+                //teacherData.child("ID").setValue(id);
+                teacherData.child(id).child("Name").setValue(name);
+                teacherData.child(id).child("Department").setValue(department);
+                teacherData.child(id).child("Contract").setValue(contracts);
+
+
+            }
+        });
+
+        StudentVarification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name= Name.getText().toString().trim();
+                String id= ID.getText().toString().trim();
+                String department= Department.getText().toString().trim();
+                String contracts= contract.getText().toString().trim();
+                String program= Program.getText().toString().trim();
+
+                studentData=FirebaseDatabase.getInstance().getReference("Student");
+                //studentData.child("ID").setValue(id);
+                studentData.child(id).child("Name").setValue(name);
+                studentData.child(id).child("Department").setValue(department);
+                studentData.child(id).child("Program").setValue(program);
+                studentData.child(id).child("Contract").setValue(contracts);
+
+            }
+        });
+
 
         SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,11 +106,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void userRegister() {
-        String name= Name.getText().toString().trim();
-        String id= ID.getText().toString().trim();
-        String department= Department.getText().toString().trim();
-        String contracts= contract.getText().toString().trim();
-        String program= Program.getText().toString().trim();
+
         String email= Email.getText().toString().trim();
         String password= Password.getText().toString().trim();
         if(email.isEmpty()){
