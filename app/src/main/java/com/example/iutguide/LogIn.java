@@ -47,6 +47,7 @@ public class LogIn extends AppCompatActivity {
          @Override
          public void onClick(View view) {
              loginApproval();
+
          }
      });
      remember_me.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +56,10 @@ public class LogIn extends AppCompatActivity {
              num=1;
          }
      });
+
+
+
+
     }
 
 
@@ -68,10 +73,20 @@ public class LogIn extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if (task.isSuccessful()) {
-                        Intent intent = new Intent(LogIn.this, TeacherLogin.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                    } else {
+                        SignUp singUp1=new SignUp();
+                        if(singUp1.getCheck2()==3){
+                            Intent intent3=new Intent(LogIn.this,StudentLogin.class);
+                            startActivity(intent3);
+                        }
+                        else if(singUp1.getCheck1()==3){
+                            Intent intent4=new Intent(LogIn.this,TeacherLogin.class);
+                            startActivity(intent4);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"Not recognised",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    else {
                         Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_SHORT).show();
                     }
 

@@ -23,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
     Intent intent = getIntent();
+    protected static int check1;
+    protected static int check2;
     private EditText Name;
     private EditText ID;
     private EditText Email;
@@ -32,8 +34,8 @@ public class SignUp extends AppCompatActivity {
     private EditText contract;
     private Button SignUp;
     private FirebaseAuth mAuth;
-    CheckBox Teachervarification;
-    CheckBox StudentVarification;
+    private  CheckBox Teachervarification;
+    private CheckBox StudentVarification;
     DatabaseReference teacherData;
     DatabaseReference studentData;
 
@@ -57,10 +59,10 @@ public class SignUp extends AppCompatActivity {
 
 
 
-
         Teachervarification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                check1=3;
                 String name= Name.getText().toString();
                 String id= ID.getText().toString();
                 String department= Department.getText().toString();
@@ -80,6 +82,7 @@ public class SignUp extends AppCompatActivity {
         StudentVarification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                check2=3;
                 String name= Name.getText().toString().trim();
                 String id= ID.getText().toString().trim();
                 String department= Department.getText().toString().trim();
@@ -95,6 +98,9 @@ public class SignUp extends AppCompatActivity {
 
             }
         });
+
+
+
 
 
         SignUp.setOnClickListener(new View.OnClickListener() {
@@ -141,5 +147,12 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
+    }
+    int getCheck1(){
+        return check1;
+
+    }
+    int getCheck2(){
+        return check2;
     }
 }

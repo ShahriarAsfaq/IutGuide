@@ -1,91 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SignUp"
-    android:layout_margin="30dp"
-    android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/signUpName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="Name"
-        android:textSize="24dp"></EditText>
-
-    <EditText
-        android:id="@+id/signUpID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="ID"
-        android:textSize="24dp"></EditText>
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".SignUp"
+android:layout_margin="30dp"
+    android:gravity="center"
+android:orientation="vertical">
 
 
+ <ScrollView
+     android:layout_width="fill_parent"
+     android:layout_height="fill_parent">
 
-    <EditText
-        android:id="@+id/signUpDepartment"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="Department"
-        android:textSize="24dp"></EditText>
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/signUpProgram"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="Program(only for students)"
-        android:textSize="24dp"></EditText>
-    <EditText
-        android:id="@+id/signUpContract"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="Contract No"
-        android:textSize="24dp"></EditText>
-    <EditText
-        android:id="@+id/signUpEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="Email"
-        android:textSize="24dp"></EditText>
-    <EditText
-        android:id="@+id/signupPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="Enter new password"
-        android:textSize="24dp"/>
+        <EditText
+            android:id="@+id/signUpName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Name"
+            android:textSize="24dp"/>
 
-    <CheckBox
-        android:id="@+id/TeacherVarification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Teacher"
-        android:textSize="22sp" />
 
-    <CheckBox
-        android:id="@+id/StudentVarification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Student"
-        android:textSize="22sp" />
 
-    <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="Sign Up"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        ></Button>
+        <EditText
+            android:id="@+id/signUpID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="ID"
+            android:textSize="24dp"/>
+
+
+
+
+        <EditText
+            android:id="@+id/signUpDepartment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Department"
+            android:textSize="24dp"/>
+
+        <EditText
+            android:id="@+id/signUpProgram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Program(only for students)"
+            android:textSize="24dp"/>
+
+
+        <EditText
+            android:id="@+id/signUpContract"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Contract No"
+            android:textSize="24dp"/>
+
+        <EditText
+            android:id="@+id/signUpEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Email"
+            android:textSize="24dp"/>
+
+        <EditText
+            android:id="@+id/signupPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Enter new password"
+            android:textSize="24dp"/>
+
+        <CheckBox
+            android:id="@+id/TeacherVarification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teacher"
+            android:textSize="22sp" />
+
+        <CheckBox
+            android:id="@+id/StudentVarification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="Sign Up"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
+
+
+
+    </LinearLayout>
+
+ </ScrollView>
 
 
 </LinearLayout>
