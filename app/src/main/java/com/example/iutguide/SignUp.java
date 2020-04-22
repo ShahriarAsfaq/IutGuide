@@ -38,8 +38,8 @@ public class SignUp extends AppCompatActivity {
     private CheckBox StudentVarification;
     DatabaseReference teacherData;
     DatabaseReference studentData;
-
-
+    DatabaseReference teacherIdEmail;
+    DatabaseReference studentIdEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +63,17 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 check1=3;
+                String key;
                 String name= Name.getText().toString();
                 String id= ID.getText().toString();
                 String department= Department.getText().toString();
                 String contracts= contract.getText().toString();
                 String program= Program.getText().toString();
                 String email= Email.getText().toString();
-
+                teacherIdEmail=FirebaseDatabase.getInstance().getReference("Teacher_Id_Email");
+                key=teacherIdEmail.push().getKey();
+                teacherIdEmail.child(key).child("ID").setValue(id);
+                teacherIdEmail.child(key).child("EMAIL").setValue(email);
                 teacherData=FirebaseDatabase.getInstance().getReference("Teacher");
                 //teacherData.child("ID").setValue(id);
                 teacherData.child(id).child("Name").setValue(name);
@@ -85,13 +89,17 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 check2=3;
+                String key;
                 String name= Name.getText().toString().trim();
                 String id= ID.getText().toString().trim();
                 String department= Department.getText().toString().trim();
                 String contracts= contract.getText().toString().trim();
                 String program= Program.getText().toString().trim();
                 String email= Email.getText().toString().trim();
-
+                studentIdEmail=FirebaseDatabase.getInstance().getReference("Student_Id_Email");
+                key=studentIdEmail.push().getKey();
+                studentIdEmail.child(key).child("ID").setValue(id);
+                studentIdEmail.child(key).child("EMAIL").setValue(email);
                 studentData=FirebaseDatabase.getInstance().getReference("Student");
                 //studentData.child("ID").setValue(id);
                 studentData.child(id).child("Name").setValue(name);

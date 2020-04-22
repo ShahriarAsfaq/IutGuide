@@ -2,6 +2,7 @@ package com.example.iutguide;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,7 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 public class CourseAdapter extends ArrayAdapter<AddCourseFirebase> {
-
+   // Intent intent= getIntent();
     private Activity context;
 
     private List<AddCourseFirebase>addCourseFirebaseList;

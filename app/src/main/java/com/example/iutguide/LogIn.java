@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LogIn extends AppCompatActivity {
     Intent intent = getIntent();
@@ -23,13 +25,15 @@ public class LogIn extends AppCompatActivity {
     private EditText name;
     private EditText password;
     private CheckBox remember_me;
+    private String SID;
     private FirebaseAuth mAuth;
-
+    DatabaseReference studentId;
     protected static int num;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        studentId= FirebaseDatabase.getInstance().getReference("Student");
         mAuth = FirebaseAuth.getInstance();
         login=(Button)findViewById(R.id.login);
         signup=(Button)findViewById(R.id.signup);
@@ -86,7 +90,7 @@ public class LogIn extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Not recognised",Toast.LENGTH_LONG).show();
                         }
                     }
-                    else {
+                     else {
                         Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_SHORT).show();
                     }
 

@@ -14,18 +14,21 @@
         <activity android:name=".TeacherLogin" />
         <activity android:name=".NewClass" />
         <activity android:name=".SignUp" />
-        <activity android:name=".CourseDetails" />
-        <activity android:name=".Course" />
-        <activity android:name=".addCourse" />
-        <activity android:name=".teacheraccount" />
-        <activity android:name=".LogIn" />
-        <activity android:name=".Book_List" />
-        <activity android:name=".HomePage">
+
+        <activity android:name=".Course" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".CourseDetails" />
+        <activity android:name=".addCourse" />
+        <activity android:name=".teacheraccount" />
+        <activity android:name=".LogIn" />
+        <activity android:name=".Book_List" />
+        <activity android:name=".HomePage">
+
         </activity>
         <activity android:name=".Events" />
         <activity android:name=".Library" />

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -45,6 +46,16 @@ public class  Course extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+       
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                if(position==0) {
+                    Intent intent3 = new Intent(getApplicationContext(),CourseDetails.class);
+                    startActivity(intent3);
+                }
+            }
+        });
     }
 
     @Override
@@ -58,8 +69,8 @@ public class  Course extends AppCompatActivity {
                     AddCourseFirebase addCourseFirebase=dataSnapshot1.getValue(AddCourseFirebase.class);
                     addCourseFirebaseList.add(addCourseFirebase);
                 }
-                listView.setAdapter(courseAdapter);
 
+                listView.setAdapter(courseAdapter);
             }
 
             @Override
