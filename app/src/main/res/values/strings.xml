@@ -25,4 +25,12 @@
         <item> AUSTRALIA </item>
     </string-array>
 
+
+
+    <string-array name="Task">
+        <item> Quiz </item>
+        <item> Assignment </item>
+        <item> Presentation </item>
+    </string-array>
+
 </resources>

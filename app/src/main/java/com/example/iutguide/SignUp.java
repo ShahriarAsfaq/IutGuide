@@ -68,12 +68,14 @@ public class SignUp extends AppCompatActivity {
                 String department= Department.getText().toString();
                 String contracts= contract.getText().toString();
                 String program= Program.getText().toString();
+                String email= Email.getText().toString();
 
                 teacherData=FirebaseDatabase.getInstance().getReference("Teacher");
                 //teacherData.child("ID").setValue(id);
                 teacherData.child(id).child("Name").setValue(name);
                 teacherData.child(id).child("Department").setValue(department);
                 teacherData.child(id).child("Contract").setValue(contracts);
+                teacherData.child(id).child("Email").setValue(email);
 
 
             }
@@ -88,6 +90,7 @@ public class SignUp extends AppCompatActivity {
                 String department= Department.getText().toString().trim();
                 String contracts= contract.getText().toString().trim();
                 String program= Program.getText().toString().trim();
+                String email= Email.getText().toString().trim();
 
                 studentData=FirebaseDatabase.getInstance().getReference("Student");
                 //studentData.child("ID").setValue(id);
@@ -95,6 +98,7 @@ public class SignUp extends AppCompatActivity {
                 studentData.child(id).child("Department").setValue(department);
                 studentData.child(id).child("Program").setValue(program);
                 studentData.child(id).child("Contract").setValue(contracts);
+                studentData.child(id).child("Email").setValue(email);
 
             }
         });
