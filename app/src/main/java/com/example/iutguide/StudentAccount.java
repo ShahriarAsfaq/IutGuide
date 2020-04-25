@@ -40,7 +40,7 @@ public class StudentAccount extends AppCompatActivity {
         drive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(StudentAccount.this,GoogleDrive.class);
+                Intent intent=new Intent(StudentAccount.this,DriveLinks.class);
                 startActivity(intent);
             }
         });
