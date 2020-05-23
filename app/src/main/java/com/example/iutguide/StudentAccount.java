@@ -6,18 +6,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class StudentAccount extends AppCompatActivity {
     Intent intent= getIntent();
+    private Button studentCourse;
     private Button classes;
     private Button activity;
     private Button drive;
     private Button library;
     private Button event;
+    public String SID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LogIn login=new LogIn();
+        SID=login.StudentId();
+        studentCourse=findViewById(R.id.Studentb6);
+        studentCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(StudentAccount.this,Student_Batch.class);
+                startActivity(intent);
+            }
+        });
         classes=(Button)findViewById(R.id.classes);
         activity=(Button)findViewById(R.id.activities);
         drive=(Button)findViewById(R.id.drive);

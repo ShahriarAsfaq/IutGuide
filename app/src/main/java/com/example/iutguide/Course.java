@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,12 +27,30 @@ public class  Course extends AppCompatActivity {
    Button CourseB1;
    private List<AddCourseFirebase> addCourseFirebaseList;
    private CourseAdapter courseAdapter;
+   private static int verify;
    DatabaseReference mDatabase;
+   int cnt=0;
+  static int position1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
-        mDatabase=FirebaseDatabase.getInstance().getReference("Course");
+        LogIn logIn=new LogIn();
+        String str;
+        str=logIn.StudentId();
+        mDatabase=FirebaseDatabase.getInstance().getReference().child("Teacher_Course").child(str);
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+           if(dataSnapshot.exists())
+                cnt=(int)dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         addCourseFirebaseList=new ArrayList<>();
 
@@ -46,13 +65,19 @@ public class  Course extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-       
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                if(position==0) {
-                    Intent intent3 = new Intent(getApplicationContext(),CourseDetails.class);
+               for(int i=0;i<cnt;i++){
+                if(position==i) {
+                    position1=(i+1);
+                    verify=2;
+                    Toast.makeText(getApplicationContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
+                    Intent intent3 = new Intent(getApplicationContext(), CourseDetails.class);
                     startActivity(intent3);
+                     break;
+                }
                 }
             }
         });
@@ -79,5 +104,11 @@ public class  Course extends AppCompatActivity {
             }
         });
         super.onStart();
+    }
+    int getposition(){
+        return position1;
+    }
+    int verify(){
+        return verify;
     }
 }

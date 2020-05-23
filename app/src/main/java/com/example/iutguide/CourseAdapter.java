@@ -37,9 +37,10 @@ public class CourseAdapter extends ArrayAdapter<AddCourseFirebase> {
 
         TextView t1=view.findViewById(R.id.sampltT1);
         TextView t2=view.findViewById(R.id.sampltT2);
+        TextView t3=view.findViewById(R.id.sampltT3);
         t1.setText(add_c_Firebase.getCourseName());
-        t2.setText(add_c_Firebase.getCourseCredit());
-
+        t2.setText(add_c_Firebase.getCourseId());
+        t3.setText(add_c_Firebase.getCourseCredit());
         return view;
     }
 }

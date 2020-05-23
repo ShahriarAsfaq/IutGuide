@@ -30,5 +30,22 @@ public class CourseDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        final Student_Course student_course=new Student_Course();
+
+
+            attendence.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(student_course.verify()==1) {
+                        Intent intent=new Intent(CourseDetails.this,StudentAttendence.class);
+                        startActivity(intent);
+                    }
+                    else {
+                        Intent intent=new Intent(CourseDetails.this,Attendence.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+
     }
 }

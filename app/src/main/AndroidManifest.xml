@@ -9,26 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TasksTeacher"></activity>
+        <activity android:name=".Scanner"></activity>
+        <activity android:name=".StudentAttendence">
+
+        </activity>
+        <activity android:name=".Attendence" />
+        <activity android:name=".Student_Batch" />
+        <activity android:name=".Student_Course" />
+        <activity android:name=".TasksTeacher" />
         <activity android:name=".StudentLogin" />
         <activity android:name=".TeacherLogin" />
         <activity android:name=".NewClass" />
         <activity android:name=".SignUp" />
-
-        <activity android:name=".Course" >
+        <activity android:name=".Course" />
+        <activity android:name=".CourseDetails" />
+        <activity android:name=".addCourse" />
+        <activity android:name=".teacheraccount" />
+        <activity android:name=".LogIn"></activity>
+        <activity android:name=".Book_List" />
+        <activity android:name=".HomePage" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".CourseDetails" />
-        <activity android:name=".addCourse" />
-        <activity android:name=".teacheraccount" />
-        <activity android:name=".LogIn" />
-        <activity android:name=".Book_List" />
-        <activity android:name=".HomePage">
-
         </activity>
         <activity android:name=".Events" />
         <activity android:name=".Library" />
@@ -38,5 +42,7 @@
         <activity android:name=".StudentAccount" />
         <activity android:name=".activity_push" />
     </application>
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>
