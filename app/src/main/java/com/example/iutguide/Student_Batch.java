@@ -32,7 +32,6 @@ public class Student_Batch extends AppCompatActivity {
    DatabaseReference reference3;
    DatabaseReference reference4;
    DatabaseReference reference5;
-   DatabaseReference reference6;
     int cnt=0;
     int cnt2=0;
     int cnt3=0;
@@ -51,17 +50,15 @@ public class Student_Batch extends AppCompatActivity {
         studentBatchE1=findViewById(R.id.StudentBatchE1);
      studentBatchB1=findViewById(R.id.StudentBatchb1);
  reference4=FirebaseDatabase.getInstance().getReference().child("Course_Student");
-reference5=FirebaseDatabase.getInstance().getReference().child("Student_Id_Email").child(String.valueOf(databasePosition));
-reference6=FirebaseDatabase.getInstance().getReference().child("Student_Id_Email").child(String.valueOf(databasePosition));
+reference5=FirebaseDatabase.getInstance().getReference().child("Batch_Selected").child(SID);
 reference5.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-        if(dataSnapshot.child("BATCH").exists()){
-            batchName=dataSnapshot.child("BATCH").getValue().toString();
-            Intent intent=new Intent(Student_Batch.this,Student_Course.class);
-            startActivity(intent);
-        }
+       if(dataSnapshot.exists()){
+           batchName=dataSnapshot.getValue().toString();
+           Intent intent=new Intent(Student_Batch.this,Student_Course.class);
+           startActivity(intent);
+       }
     }
 
     @Override
@@ -69,6 +66,8 @@ reference5.addValueEventListener(new ValueEventListener() {
 
     }
 });
+
+
       studentBatchE1.addTextChangedListener(new TextWatcher() {
           @Override
           public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -79,8 +78,8 @@ reference5.addValueEventListener(new ValueEventListener() {
           public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                str=studentBatchE1.getText().toString();
              if(str.length()==5){
+                 Toast.makeText(getApplicationContext(),"Batch added",Toast.LENGTH_SHORT).show();
                  batchName=str;
-                 reference6.child("BATCH").setValue(batchName);
                  reference3=FirebaseDatabase.getInstance().getReference().child("Batch_Course").child(batchName);
                  reference3.addValueEventListener(new ValueEventListener() {
                      @Override
@@ -108,15 +107,20 @@ reference5.addValueEventListener(new ValueEventListener() {
                              Toast.makeText(getApplicationContext(),s1[i-1],Toast.LENGTH_SHORT).show();
                              reference2=FirebaseDatabase.getInstance().getReference().child("Course_Student").child(str);
                              final int finalI = i;
+                             final int fianalcnt=cnt2;
                              reference2.addValueEventListener(new ValueEventListener() {
                                  @Override
                                  public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                   if(dataSnapshot.exists()) {
                                       cnt2 = (int) dataSnapshot.getChildrenCount();
+                                      num[finalI-1]=(cnt2+1);
+                                      Toast.makeText(getApplicationContext(),String.valueOf(cnt2),Toast.LENGTH_SHORT).show();
                                   }
-                                  num[finalI-1]=(cnt2+1);
+                                  else {
+                                      num[finalI - 1] = (cnt2 + 1);
+                                      Toast.makeText(getApplicationContext(),String.valueOf(cnt2),Toast.LENGTH_SHORT).show();
+                                  }
 
-                                     Toast.makeText(getApplicationContext(),String.valueOf(num[finalI-1]),Toast.LENGTH_SHORT).show();
                                  }
 
                                  @Override
@@ -173,9 +177,11 @@ reference5.addValueEventListener(new ValueEventListener() {
               }
 
               reference.child(String.valueOf(cnt+1)).setValue(SID);
-              Toast.makeText(getApplicationContext(),t1,Toast.LENGTH_SHORT).show();
+              reference5.setValue(str);
               Intent intent2=new Intent(Student_Batch.this,Student_Course.class);
               startActivity(intent2);
+
+
           }
       });
 
