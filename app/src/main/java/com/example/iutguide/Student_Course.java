@@ -29,7 +29,10 @@ public class Student_Course extends AppCompatActivity {
   private ListView listView;
 static int position1;
 int cnt=0;
+String studentId;
+String str;
 private static  int verify;
+DatabaseReference reference;
    ArrayList<String> myArrayList= new ArrayList<>();
 
    DatabaseReference myref;
@@ -37,20 +40,62 @@ private static  int verify;
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student__course);
-
-      Student_Batch student_batch=new Student_Batch();
+        LogIn logIn=new LogIn();
+        studentId=logIn.StudentId();
         final ArrayAdapter<String> myArrayAdepter=new ArrayAdapter<String>(Student_Course.this,android.R.layout.simple_list_item_1,myArrayList);
-     listView=(ListView) findViewById(R.id.StudentCourseL1);
+        listView=(ListView) findViewById(R.id.StudentCourseL1);
 
-     listView.setAdapter(myArrayAdepter);
-      String str=student_batch.getBatchName();
-     myref=FirebaseDatabase.getInstance().getReference().child("Batch_Course").child(str);
-myref.addValueEventListener(new ValueEventListener() {
+        listView.setAdapter(myArrayAdepter);
+
+        reference=FirebaseDatabase.getInstance().getReference().child("Batch_Selected").child(studentId);
+reference.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-   if(dataSnapshot.exists()){
-       cnt=(int)dataSnapshot.getChildrenCount();
-   }
+        str=dataSnapshot.getValue().toString();
+        myref=FirebaseDatabase.getInstance().getReference().child("Batch_Course").child(str);
+        myref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    cnt=(int)dataSnapshot.getChildrenCount();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        myref.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                String value=dataSnapshot.getValue(String.class);
+                myArrayList.add(value);
+                myArrayAdepter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                myArrayAdepter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -58,36 +103,9 @@ myref.addValueEventListener(new ValueEventListener() {
 
     }
 });
-     myref.addChildEventListener(new ChildEventListener() {
-         @Override
-         public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-             String value=dataSnapshot.getValue(String.class);
-             myArrayList.add(value);
-             myArrayAdepter.notifyDataSetChanged();
+      Student_Batch student_batch=new Student_Batch();
 
-         }
 
-         @Override
-         public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-             myArrayAdepter.notifyDataSetChanged();
-         }
-
-         @Override
-         public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-         }
-
-         @Override
-         public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-         }
-
-         @Override
-         public void onCancelled(@NonNull DatabaseError databaseError) {
-
-         }
-     });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {

@@ -10,19 +10,19 @@
         android:id="@+id/button3"
         android:layout_width="190dp"
         android:layout_height="91dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="165dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="64dp"
         android:text="Attendence"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/CourseDetailsB4" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="166dp"
         android:layout_height="85dp"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="68dp"
         android:text="Resources"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +32,22 @@
         android:id="@+id/button7"
         android:layout_width="147dp"
         android:layout_height="91dp"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="76dp"
         android:text="Tasks"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+    <Button
+        android:id="@+id/CourseDetailsB4"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="64dp"
+        android:text="PERCENTAGE"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

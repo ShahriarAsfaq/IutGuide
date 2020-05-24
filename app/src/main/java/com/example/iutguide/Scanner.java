@@ -28,6 +28,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
   DatabaseReference reference1;
   DatabaseReference reference2;
   DatabaseReference reference3;
+  DatabaseReference reference4;
     ZXingScannerView ScannerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,39 +41,53 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         Student_Course student_course=new Student_Course();
         position=(student_course.position());
         Student_Batch student_batch=new Student_Batch();
-        batchName=student_batch.getBatchName();
-        Toast.makeText(getApplicationContext(),batchName,Toast.LENGTH_SHORT).show();
         Toast.makeText(getApplicationContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
         Toast.makeText(getApplicationContext(),studentId,Toast.LENGTH_SHORT).show();
-        reference1=FirebaseDatabase.getInstance().getReference().child("Batch_Course").child(batchName).child(String.valueOf(position));
-        reference1.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-           courseName=dataSnapshot.getValue().toString();
-                Toast.makeText(getApplicationContext(),courseName,Toast.LENGTH_SHORT).show();
-                reference2=FirebaseDatabase.getInstance().getReference().child("Course_Date").child(courseName);
-                reference2.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                       if(dataSnapshot.exists()){
-                           cnt=(int)dataSnapshot.getChildrenCount();
-                           date=dataSnapshot.child(String.valueOf(cnt)).getValue().toString();
-                           Toast.makeText(getApplicationContext(),date,Toast.LENGTH_SHORT).show();
+           reference4=FirebaseDatabase.getInstance().getReference().child("Batch_Selected").child(studentId);
+           reference4.addValueEventListener(new ValueEventListener() {
+               @Override
+               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                   batchName=dataSnapshot.getValue().toString();
+                   Toast.makeText(getApplicationContext(),batchName,Toast.LENGTH_SHORT).show();
+                   reference1=FirebaseDatabase.getInstance().getReference().child("Batch_Course").child(batchName).child(String.valueOf(position));
+                   reference1.addValueEventListener(new ValueEventListener() {
+                       @Override
+                       public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                           courseName=dataSnapshot.getValue().toString();
+                           Toast.makeText(getApplicationContext(),courseName,Toast.LENGTH_SHORT).show();
+                           reference2=FirebaseDatabase.getInstance().getReference().child("Course_Date").child(courseName);
+                           reference2.addValueEventListener(new ValueEventListener() {
+                               @Override
+                               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                   if(dataSnapshot.exists()){
+                                       cnt=(int)dataSnapshot.getChildrenCount();
+                                       date=dataSnapshot.child(String.valueOf(cnt)).getValue().toString();
+                                       Toast.makeText(getApplicationContext(),date,Toast.LENGTH_SHORT).show();
+                                   }
+                               }
+
+                               @Override
+                               public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                               }
+                           });
                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                       @Override
+                       public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
-            }
+                       }
+                   });
+               }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+               @Override
+               public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+               }
+           });
+
+
+
     }
 
     @Override

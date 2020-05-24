@@ -14,12 +14,14 @@ public class CourseDetails extends AppCompatActivity {
     Button attendence;
     Button resourses;
     Button tasks;
+    Button percentage;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details);
+        percentage=(Button)findViewById(R.id.CourseDetailsB4);
         attendence=(Button)findViewById(R.id.button3);
         resourses=(Button)findViewById(R.id.button6);
         tasks=(Button)findViewById(R.id.button7);
@@ -46,6 +48,20 @@ public class CourseDetails extends AppCompatActivity {
                     }
                 }
             });
+           percentage.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   if(student_course.verify()==1){
+                       Intent intent=new Intent(CourseDetails.this,StudentPercentage.class);
+                       startActivity(intent);
+                   }
+                   else{
+                       Intent intent=new Intent(CourseDetails.this,TeacherPercentage.class);
+                       startActivity(intent);
+                   }
+               }
+
+           });
 
     }
 }
