@@ -39,6 +39,7 @@ String cDate;
 int batchCount=0;
 String courseId;
 int cnt=0;
+int cnt4=1;
 String studentlist[];
 private DatePickerDialog.OnDateSetListener mDateSetListener;
 
@@ -50,13 +51,31 @@ private DatePickerDialog.OnDateSetListener mDateSetListener;
         String ID=logIn.StudentId();
         Course course=new Course();
         final int position=course.getposition();
+
+
 reference3=FirebaseDatabase.getInstance().getReference().child("Attendence");
    reference2=FirebaseDatabase.getInstance().getReference().child("Teacher_Course").child(ID).child(String.valueOf(position));
         reference2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 courseId= dataSnapshot.child("courseId").getValue().toString();
+                reference4=FirebaseDatabase.getInstance().getReference().child("Course_Date").child(courseId);
+                reference4.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.exists()){
+                            cnt4=(int)dataSnapshot.getChildrenCount();
+                            cnt4++;
 
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
                 Toast.makeText(getApplicationContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(),courseId,Toast.LENGTH_SHORT).show();
             }
@@ -66,7 +85,6 @@ reference3=FirebaseDatabase.getInstance().getReference().child("Attendence");
 
             }
         });
-
 
 
         mDisplayDate=(TextView)findViewById(R.id.attendenceT1);
@@ -121,11 +139,11 @@ reference3=FirebaseDatabase.getInstance().getReference().child("Attendence");
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month=month+1;
-                String date =day+"-"+month+"-"+year;
+                final String date =day+"-"+month+"-"+year;
                 cDate=date;
                 mDisplayDate.setText(date);
-
-
+                Toast.makeText(getApplicationContext(),String.valueOf(cnt4),Toast.LENGTH_SHORT).show();
+                reference4.child(String.valueOf(cnt4)).setValue(date);
 
                 for(int i=1;i<=cnt;i++){
                     reference3.child(courseId).child(date).child(studentlist[i-1]).setValue("A");

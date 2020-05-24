@@ -27,7 +27,7 @@ import java.util.List;
 public class Student_Course extends AppCompatActivity {
     Intent intent=getIntent();
   private ListView listView;
-int position1;
+static int position1;
 int cnt=0;
 private static  int verify;
    ArrayList<String> myArrayList= new ArrayList<>();
