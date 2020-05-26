@@ -18,12 +18,21 @@ public class teacheraccount extends AppCompatActivity {
     Intent intent= getIntent();
     private Button Courses;
     private Button TeacherEvents;
+    Button teacherAccountB4;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacheraccount);
+        teacherAccountB4=(Button)findViewById(R.id.teacherAccountB4);
+        teacherAccountB4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(teacheraccount.this,QrCodeGenerator.class);
+                startActivity(intent);
+            }
+        });
         TeacherEvents=(Button)findViewById(R.id.teacherevents);
         TeacherEvents.setOnClickListener(new  View.OnClickListener() {
             @Override
