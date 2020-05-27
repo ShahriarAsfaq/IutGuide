@@ -19,12 +19,15 @@ public class teacheraccount extends AppCompatActivity {
     private Button Courses;
     private Button TeacherEvents;
     Button teacherAccountB4;
+    private Button project;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacheraccount);
+
+        project=findViewById(R.id.project);
         teacherAccountB4=(Button)findViewById(R.id.teacherAccountB4);
         teacherAccountB4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,5 +54,11 @@ public class teacheraccount extends AppCompatActivity {
             }
         });
 
+        project.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }

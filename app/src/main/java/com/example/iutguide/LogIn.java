@@ -38,7 +38,7 @@ public class LogIn extends AppCompatActivity {
     DatabaseReference studentId;
     DatabaseReference teacherId;
     protected static int num;
-   static int databasePosition;
+    static int databasePosition;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,19 +84,19 @@ public class LogIn extends AppCompatActivity {
         });
 
 
-     login.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-             loginApproval();
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginApproval();
 
-         }
-     });
-     remember_me.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-             num=1;
-         }
-     });
+            }
+        });
+        remember_me.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num=1;
+            }
+        });
 
 
 
@@ -118,65 +118,65 @@ public class LogIn extends AppCompatActivity {
                         int temp1=singUp1.getCheck1();
                         int temp2= singUp1.getCheck2();
 
-                            studentId.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        studentId.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                    for (int i = 1; i <= cnt1; i++) {
-                                        String temp = dataSnapshot.child(String.valueOf(i)).child("EMAIL").getValue().toString();
-                                        if (email.compareTo(temp) == 0) {
-                                            databasePosition=i;
-                                            SID = dataSnapshot.child(String.valueOf(i)).child("ID").getValue().toString();
-                                            Toast.makeText(getApplicationContext(),SID, Toast.LENGTH_SHORT).show();
-                                            Intent intent3=new Intent(LogIn.this,StudentLogin.class);
-                                            startActivity(intent3);
-                                            break;
+                                for (int i = 1; i <= cnt1; i++) {
+                                    String temp = dataSnapshot.child(String.valueOf(i)).child("EMAIL").getValue().toString();
+                                    if (email.compareTo(temp) == 0) {
+                                        databasePosition=i;
+                                        SID = dataSnapshot.child(String.valueOf(i)).child("ID").getValue().toString();
+                                        Toast.makeText(getApplicationContext(),SID, Toast.LENGTH_SHORT).show();
+                                        Intent intent3=new Intent(LogIn.this,StudentLogin.class);
+                                        startActivity(intent3);
+                                        break;
 
-                                        }
-                                    }
-
-
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-
-
-
-
-
-                            teacherId.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                                    for(int i=1;i<=cnt2;i++) {
-                                        String temp = dataSnapshot.child(String.valueOf(i)).child("EMAIL").getValue().toString();
-                                        if (email.compareTo(temp) == 0) {
-                                            databasePosition=i;
-                                            SID = dataSnapshot.child(String.valueOf(i)).child("ID").getValue().toString();
-                                            Toast.makeText(getApplicationContext(),SID, Toast.LENGTH_SHORT).show();
-                                            Intent intent4=new Intent(LogIn.this,TeacherLogin.class);
-                                            startActivity(intent4);
-                                            break;
-                                        }
                                     }
                                 }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
 
 
+
+
+
+                        teacherId.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                for(int i=1;i<=cnt2;i++) {
+                                    String temp = dataSnapshot.child(String.valueOf(i)).child("EMAIL").getValue().toString();
+                                    if (email.compareTo(temp) == 0) {
+                                        databasePosition=i;
+                                        SID = dataSnapshot.child(String.valueOf(i)).child("ID").getValue().toString();
+                                        Toast.makeText(getApplicationContext(),SID, Toast.LENGTH_SHORT).show();
+                                        Intent intent4=new Intent(LogIn.this,TeacherLogin.class);
+                                        startActivity(intent4);
+                                        break;
+                                    }
                                 }
-                            });
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
 
 
+                            }
+                        });
 
-                        }
+
 
                     }
+
+                }
 
 
 
@@ -187,12 +187,12 @@ public class LogIn extends AppCompatActivity {
         }
     }
     int checkbox(){
-       return num;
+        return num;
     }
     String StudentId(){
         return SID;
     }
     int databasePosition(){
-      return databasePosition;
+        return databasePosition;
     }
 }

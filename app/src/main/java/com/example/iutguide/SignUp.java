@@ -55,8 +55,8 @@ public class SignUp extends AppCompatActivity {
         Department = (EditText)findViewById(R.id.signUpDepartment);
         Program = (EditText)findViewById(R.id.signUpProgram);
         Email = (EditText)findViewById(R.id.signUpEmail);
-         Password = (EditText)findViewById(R.id.signupPassword);
-         contract = (EditText)findViewById(R.id.signUpContract);
+        Password = (EditText)findViewById(R.id.signupPassword);
+        contract = (EditText)findViewById(R.id.signUpContract);
         SignUp = (Button) findViewById(R.id.signUpButton);
         teacherIdEmail=FirebaseDatabase.getInstance().getReference().child("Teacher_Id_Email");
         teacherIdEmail.addValueEventListener(new ValueEventListener() {
@@ -75,8 +75,8 @@ public class SignUp extends AppCompatActivity {
         studentIdEmail.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-           if(dataSnapshot.exists())
-               cnt2= ((int) dataSnapshot.getChildrenCount());
+                if(dataSnapshot.exists())
+                    cnt2= ((int) dataSnapshot.getChildrenCount());
             }
 
             @Override
@@ -146,7 +146,7 @@ public class SignUp extends AppCompatActivity {
         SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            userRegister();
+                userRegister();
             }
         });
     }

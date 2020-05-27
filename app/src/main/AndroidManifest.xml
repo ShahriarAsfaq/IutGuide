@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.iutguide">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QrCodeGenerator"></activity>
+        <activity android:name=".Project"></activity>
+        <activity android:name=".TeacherProject" />
+        <activity android:name=".QrCodeGenerator" />
         <activity android:name=".TeacherPercentage" />
         <activity android:name=".StudentPercentage" />
         <activity android:name=".Scanner" />
@@ -43,7 +47,5 @@
         <activity android:name=".StudentAccount" />
         <activity android:name=".activity_push" />
     </application>
-
-    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>
