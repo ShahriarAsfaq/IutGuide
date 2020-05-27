@@ -29,6 +29,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
   DatabaseReference reference2;
   DatabaseReference reference3;
   DatabaseReference reference4;
+  DatabaseReference reference5;
     ZXingScannerView ScannerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +95,26 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
     public void handleResult(Result result) {
         qrCode=result.getText();
          if(!qrCode.isEmpty()){
-             reference3=FirebaseDatabase.getInstance().getReference().child("Attendence").child(courseName).child(date).child(studentId);
-             reference3.setValue("p");
+             reference5=FirebaseDatabase.getInstance().getReference().child("Attendence_QrCode").child(courseName).child(date);
+             reference5.addValueEventListener(new ValueEventListener() {
+                 @Override
+                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String str= dataSnapshot.getValue().toString();
+                    if(str.compareTo(qrCode)==0){
+                        reference3=FirebaseDatabase.getInstance().getReference().child("Attendence").child(courseName).child(date).child(studentId);
+                        reference3.setValue("p");
+                        Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                    }
+                 }
+
+                 @Override
+                 public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                 }
+             });
         }
         StudentAttendence.studentAttendenceT1.setText(result.getText());
          onBackPressed();

@@ -35,11 +35,13 @@ Intent intent=getIntent();
  DatabaseReference reference2;
  DatabaseReference reference3;
  DatabaseReference reference4;
+ DatabaseReference reference5;
 String cDate;
 int batchCount=0;
 String courseId;
 int cnt=0;
 int cnt4=1;
+String qrCode;
 String studentlist[];
 private DatePickerDialog.OnDateSetListener mDateSetListener;
 
@@ -51,7 +53,8 @@ private DatePickerDialog.OnDateSetListener mDateSetListener;
         String ID=logIn.StudentId();
         Course course=new Course();
         final int position=course.getposition();
-
+       QrCodeGenerator qrCodeGenerator=new QrCodeGenerator();
+      qrCode= qrCodeGenerator.getQrCode();
 
 reference3=FirebaseDatabase.getInstance().getReference().child("Attendence");
    reference2=FirebaseDatabase.getInstance().getReference().child("Teacher_Course").child(ID).child(String.valueOf(position));
@@ -148,6 +151,8 @@ reference3=FirebaseDatabase.getInstance().getReference().child("Attendence");
                 for(int i=1;i<=cnt;i++){
                     reference3.child(courseId).child(date).child(studentlist[i-1]).setValue("A");
                 }
+                reference5=FirebaseDatabase.getInstance().getReference().child("Attendence_QrCode").child(courseId).child(cDate);
+                reference5.setValue(qrCode);
             }
         };
     }

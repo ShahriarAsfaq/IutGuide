@@ -127,8 +127,9 @@ DatabaseReference reference4;
         teacherPercentageB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),String.valueOf(cnt3), Toast.LENGTH_LONG).show();
                 for(int i=1;i<=cnt;i++){
-                    double round=((present[i-1]/cnt)*100);
+                    double round=((present[i-1]/cnt3)*100);
                     round=Math.round(round*100.0)/100.0;
                     present[i-1]=round;
                     studentlist[i-1]=studentlist[i-1]+"                         "+String.valueOf(present[i-1])+"%";

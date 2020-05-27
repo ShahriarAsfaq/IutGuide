@@ -32,7 +32,7 @@ public class QrCodeGenerator extends AppCompatActivity {
     Button qrCodeb2;
     Bitmap bitmap;
     QRGEncoder qrgEncoder;
-    String inputValue;
+   static String inputValue;
     DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,5 +102,8 @@ public class QrCodeGenerator extends AppCompatActivity {
             }
         });
 
+    }
+    String getQrCode(){
+       return inputValue;
     }
 }
