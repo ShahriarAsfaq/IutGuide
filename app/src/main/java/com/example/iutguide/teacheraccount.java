@@ -57,6 +57,8 @@ public class teacheraccount extends AppCompatActivity {
         project.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(teacheraccount.this,TeacherProject.class);
+                startActivity(intent);
 
             }
         });

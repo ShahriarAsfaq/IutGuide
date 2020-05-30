@@ -32,6 +32,5 @@ String teacherId;
                 startActivity(intent);
             }
         });
-
     }
 }

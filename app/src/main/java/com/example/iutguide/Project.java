@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,9 +25,10 @@ public class Project extends AppCompatActivity {
     private Button addProject;
 
     String teacherId,std1, std2, std3, proName;
-   int cnt=0;
+   int cnt=1;
    int cnt2=0;
     DatabaseReference reference1;
+    DatabaseReference reference2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,21 @@ public class Project extends AppCompatActivity {
         addProject = findViewById(R.id.addprojectbutton);
         LogIn logIn=new LogIn();
         teacherId=logIn.StudentId();
+        reference1=FirebaseDatabase.getInstance().getReference().child("Teacher_Project").child(teacherId);
+        reference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    cnt= (int) dataSnapshot.getChildrenCount();
+                    cnt++;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         addProject.setOnClickListener(new View.OnClickListener() {
@@ -50,110 +67,17 @@ public class Project extends AppCompatActivity {
                 std2 = student2.getText().toString();
                 std3 = student3.getText().toString();
 
-                reference1= FirebaseDatabase.getInstance().getReference().child("Project").child(teacherId);
-                reference1.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.exists()){
-                            cnt= (int) dataSnapshot.getChildrenCount();
-                            cnt++;
-                            reference1.child(String.valueOf(cnt)).child("ProjectName").setValue(proName);
-                            reference1.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    if(dataSnapshot.exists()){
-                                        cnt2= (int) dataSnapshot.getChildrenCount();
-                                        cnt2++;
-                                      if(!std1.isEmpty()){
-                                          reference1.child(String.valueOf(cnt2)).setValue(std1);
-                                          cnt2++;
-                                      }
+                reference2=FirebaseDatabase.getInstance().getReference().child("Project").child(teacherId).child(proName);
 
-                                      if(!std2.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std2);
-                                            cnt2++;
-                                        }
-                                      if(!std3.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std3);
-                                        }
-                                    }
-                                    else{
-                                        cnt2=1;
-                                        if(!std1.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std1);
-                                            cnt2++;
-                                        }
+                Toast.makeText(getApplicationContext(), String.valueOf(cnt), Toast.LENGTH_SHORT).show();
+                reference1.child(String.valueOf(cnt)).setValue(proName);
 
-                                        if(!std2.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std2);
-                                            cnt2++;
-                                        }
-                                        if(!std3.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std3);
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-                        }
-                        else{
-                                cnt=1;
-                            reference1.child(String.valueOf(cnt)).child("ProjectName").setValue(proName);
-                            reference1.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    if(dataSnapshot.exists()){
-                                        cnt2= (int) dataSnapshot.getChildrenCount();
-                                        cnt2++;
-                                        if(!std1.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std1);
-                                            cnt2++;
-                                        }
-
-                                        if(!std2.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std2);
-                                            cnt2++;
-                                        }
-                                        if(!std3.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std3);
-                                        }
-                                    }
-                                    else{
-                                        cnt2=1;
-                                        if(!std1.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std1);
-                                            cnt2++;
-                                        }
-
-                                        if(!std2.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std2);
-                                            cnt2++;
-                                        }
-                                        if(!std3.isEmpty()){
-                                            reference1.child(String.valueOf(cnt2)).setValue(std3);
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-                        }
-                        }
+                reference2.child("1").setValue(std1);
+                reference2.child("3").setValue(std2);
+                reference2.child("2").setValue(std3);
 
 
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
             }
         });
     }
