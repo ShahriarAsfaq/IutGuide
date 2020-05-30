@@ -17,6 +17,7 @@
         android:layout_marginLeft="150dp"
         />
     <ListView
+        android:id="@+id/projectlistview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

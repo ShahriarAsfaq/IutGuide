@@ -13,9 +13,8 @@
         android:id="@+id/StudentBatchE1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="Batch Name:"
-        android:maxLength="5"
-        android:text="asdfghjkl"
+        android:hint="Batch Name: (CSE18A)"
+        android:maxLength="6"
         />
     <Button
         android:layout_marginTop="20dp"

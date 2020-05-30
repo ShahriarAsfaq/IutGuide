@@ -15,16 +15,17 @@ public class CourseDetails extends AppCompatActivity {
     Button resourses;
     Button tasks;
     Button percentage;
+    Button AddClass;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details);
-        percentage=(Button)findViewById(R.id.CourseDetailsB4);
-        attendence=(Button)findViewById(R.id.button3);
-        resourses=(Button)findViewById(R.id.button6);
-        tasks=(Button)findViewById(R.id.button7);
+        percentage=(Button)findViewById(R.id.PercentageButton);
+        attendence=(Button)findViewById(R.id.AttendenceButton);
+        resourses=(Button)findViewById(R.id.ResourcesButton);
+        tasks=(Button)findViewById(R.id.TasksButton);
         tasks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +63,15 @@ public class CourseDetails extends AppCompatActivity {
                }
 
            });
+
+        AddClass = findViewById(R.id.AddClassButton);
+        AddClass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CourseDetails.this,AddClass.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
