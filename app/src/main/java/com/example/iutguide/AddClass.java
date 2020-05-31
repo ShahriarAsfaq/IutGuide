@@ -109,31 +109,31 @@ int cnt=0;
                 sendClassInfo = FirebaseDatabase.getInstance().getReference().child("Classes").child(batchname).child(courseName);
                 if(mon == 1){
                     cnt++;
-                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("monday");
+                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("Mon");
                     sendClassInfo.child(String.valueOf(cnt)).child("class starts at").setValue(start);
                     sendClassInfo.child(String.valueOf(cnt)).child("class ends at").setValue(end);
                 }
                 if(tue == 1){
                     cnt++;
-                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("tuesday");
+                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("Tue");
                     sendClassInfo.child(String.valueOf(cnt)).child("class starts at").setValue(start);
                     sendClassInfo.child(String.valueOf(cnt)).child("class ends at").setValue(end);
                 }
                 if(wed == 1){
                     cnt++;
-                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("wednesday");
+                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("Wed");
                     sendClassInfo.child(String.valueOf(cnt)).child("class starts at").setValue(start);
                     sendClassInfo.child(String.valueOf(cnt)).child("class ends at").setValue(end);
                 }
                 if(thu == 1){
                     cnt++;
-                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("thursday");
+                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("Thu");
                     sendClassInfo.child(String.valueOf(cnt)).child("class starts at").setValue(start);
                     sendClassInfo.child(String.valueOf(cnt)).child("class ends at").setValue(end);
                 }
                 if(fri == 1){
                     cnt++;
-                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("friday");
+                    sendClassInfo.child(String.valueOf(cnt)).child("day").setValue("Fri");
                     sendClassInfo.child(String.valueOf(cnt)).child("class starts at").setValue(start);
                     sendClassInfo.child(String.valueOf(cnt)).child("class ends at").setValue(end);
                 }
