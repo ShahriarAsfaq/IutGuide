@@ -1,27 +1,158 @@
 package com.example.iutguide;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.DateFormat;
+import java.util.Calendar;
 
 public class Classes extends AppCompatActivity {
     Intent intent= getIntent();
-    private TextView Date;
-    private TextView extraclass;
     private ListView classList;
+    private DatabaseReference courseData;
+    private DatabaseReference day;
+    private DatabaseReference batchData;
+    private String studentID;
+    private String batchName;
+    private String[] courseName;
+    private int cnt=0;
+    private int cnt2=0;
+    private String dayData;
+    String[] courseInfo = new String[100];
+    String[] classStarting = new String[100];
+    String[] classEnding = new String[100];
+    int size = 0;
+    private Button reload;
+
+    DatabaseReference classes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classes);
-    Date=(TextView)findViewById(R.id.date);
-    classList=(ListView) findViewById(R.id.classlist);
-    extraclass=(TextView)findViewById(R.id.extraclass);
-    String[] class_List= getResources().getStringArray(R.array.class_List);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Classes.this,R.layout.sample_layout,R.id.listText,class_List);
-    classList.setAdapter(adapter);
+
+        Calendar calendar = Calendar.getInstance();
+        final String currentDate= DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        String current = currentDate;
+
+        final char toda[] = new char[3];
+        currentDate.getChars(0, 3, toda, 0);
+
+        final String today = String.valueOf(toda);
+
+
+
+
+
+    LogIn login = new LogIn();
+    studentID = login.StudentId();
+
+    batchData = FirebaseDatabase.getInstance().getReference().child("Batch_Selected").child(studentID);
+
+    batchData.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            batchName = dataSnapshot.getValue().toString();
+
+            courseData = FirebaseDatabase.getInstance().getReference().child("Batch_Course").child(batchName);
+            courseData.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()){
+                        cnt = (int) dataSnapshot.getChildrenCount();
+                        courseName = new String[cnt];
+
+                        for(int i=1;i<=cnt;i++){
+                            courseName[i-1] = dataSnapshot.child(String.valueOf(i)).getValue().toString();
+                           // Toast.makeText(getApplicationContext(),courseName[i-1],Toast.LENGTH_SHORT).show();
+
+                        }
+
+                        for(int i=1;i<=cnt;i++){
+
+                            classes = FirebaseDatabase.getInstance().getReference().child("Classes").child(batchName).child(courseName[i-1]);
+                            final int finalI = i;
+                            classes.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.exists()){
+                                        cnt2 = (int) dataSnapshot.getChildrenCount();
+                                        for (int j=1;j<=cnt2;j++) {
+                                            dayData = dataSnapshot.child(String.valueOf(j)).child("day").getValue().toString();
+                                            final String temp=dayData;
+
+
+                                            if (today.compareTo(temp) == 0){
+                                                courseInfo[size] = courseName[finalI -1];
+                                                classStarting[size] = dataSnapshot.child(String.valueOf(j)).child("class starts at").getValue().toString();
+                                                classEnding[size] = dataSnapshot.child(String.valueOf(j)).child("class ends at").getValue().toString();
+
+
+                                               Toast.makeText(getApplicationContext(),courseInfo[size],Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(),classStarting[size],Toast.LENGTH_SHORT).show();
+                                               Toast.makeText(getApplicationContext(),classEnding[size],Toast.LENGTH_SHORT).show();
+
+
+
+                                                size++;
+
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    });
+
+
+    reload = findViewById(R.id.reloadButton);
+    reload.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+
+            classList=(ListView) findViewById(R.id.classList);
+            ClassViewAdapter classViewAdapter = new ClassViewAdapter (Classes.this,courseInfo,classStarting,classEnding);
+            classList.setAdapter(classViewAdapter);
+        }
+    });
+
+
+
     }
 }
