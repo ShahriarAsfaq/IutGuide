@@ -40,8 +40,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="For additional info and links please contribute here:"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/addlinkbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,9 +56,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="190dp"
+        android:layout_marginBottom="2dp"
         android:ems="10"
         android:hint="Write here"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/linkbox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,11 +80,11 @@
         app:layout_constraintStart_toEndOf="@+id/addlink"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+    <ListView
+        android:id="@+id/linkbox"
+        android:layout_width="409dp"
+        android:layout_height="343dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addlink" />
