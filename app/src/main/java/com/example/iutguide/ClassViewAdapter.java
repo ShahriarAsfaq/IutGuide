@@ -16,7 +16,7 @@ public class ClassViewAdapter extends BaseAdapter {
     private LayoutInflater inflater;
 
     ClassViewAdapter(Context context, String[] courseInfo, String[] starting,String[] ending){
-        this.context=context;
+        this.context = context;
         this.courseInfo = courseInfo;
         this.starting = starting;
         this.ending = ending;
@@ -25,7 +25,7 @@ public class ClassViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return courseInfo.length;
     }
 
     @Override
@@ -48,14 +48,14 @@ public class ClassViewAdapter extends BaseAdapter {
 
         }
 
-        TextView courseName = view.findViewById(R.id.courseName);
-        TextView start = view.findViewById(R.id.start);
-        TextView end = view.findViewById(R.id.end);
+        TextView courseName = (TextView) view.findViewById(R.id.courseName);
+        TextView start = (TextView) view.findViewById(R.id.start);
+        TextView end = (TextView) view.findViewById(R.id.end);
 
         courseName.setText(courseInfo[i]);
         start.setText(starting[i]);
         end.setText(ending[i]);
 
-        return null;
+        return view;
     }
 }

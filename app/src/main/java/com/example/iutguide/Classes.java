@@ -39,6 +39,8 @@ public class Classes extends AppCompatActivity {
     int size = 0;
     private Button reload;
 
+    private String[] temp1,temp2,temp3;
+
     DatabaseReference classes;
 
     @Override
@@ -103,9 +105,9 @@ public class Classes extends AppCompatActivity {
                                                 classEnding[size] = dataSnapshot.child(String.valueOf(j)).child("class ends at").getValue().toString();
 
 
-                                               Toast.makeText(getApplicationContext(),courseInfo[size],Toast.LENGTH_SHORT).show();
-                                                Toast.makeText(getApplicationContext(),classStarting[size],Toast.LENGTH_SHORT).show();
-                                               Toast.makeText(getApplicationContext(),classEnding[size],Toast.LENGTH_SHORT).show();
+//                                               Toast.makeText(getApplicationContext(),courseInfo[size],Toast.LENGTH_SHORT).show();
+//                                               Toast.makeText(getApplicationContext(),classStarting[size],Toast.LENGTH_SHORT).show();
+//                                               Toast.makeText(getApplicationContext(),classEnding[size],Toast.LENGTH_SHORT).show();
 
 
 
@@ -140,10 +142,17 @@ public class Classes extends AppCompatActivity {
     });
 
 
+
     reload = findViewById(R.id.reloadButton);
     reload.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+
+//            for(int k =0;k<size;k++){
+//                Toast.makeText(getApplicationContext(),courseInfo[k],Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),classStarting[k],Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),classEnding[k],Toast.LENGTH_SHORT).show();
+//            }
 
 
             classList=(ListView) findViewById(R.id.classList);
