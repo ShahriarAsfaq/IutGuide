@@ -1,84 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".StudentAccount">
+    tools:context=".StudentAccount"
+    android:orientation="vertical">
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <Button
         android:id="@+id/Studentb6"
         android:layout_width="122dp"
-        android:layout_height="59dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="56dp"
         android:background="#329BF0"
         android:text="Button"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
 
     <Button
         android:id="@+id/classes"
         android:layout_width="122dp"
-        android:layout_height="59dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="168dp"
         android:background="#329BF0"
         android:text="Classes"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/activities"
-        android:layout_width="119dp"
-        android:layout_height="55dp"
+        android:layout_width="122dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="56dp"
         android:background="#329BF0"
         android:text="Activities"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classes" />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/drive"
-        android:layout_width="116dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="122dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="148dp"
         android:background="#329BF0"
         android:text="Resources"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activities" />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/library"
-        android:layout_width="116dp"
-        android:layout_height="61dp"
+        android:layout_width="122dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="48dp"
         android:background="#329BF0"
         android:text="Library"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drive" />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/event"
-        android:layout_width="114dp"
-        android:layout_height="59dp"
+        android:layout_width="122dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="44dp"
         android:background="#329BF0"
         android:text="Events"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/library" />
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/studentProject"
+        android:layout_width="122dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="148dp"
+        android:background="#329BF0"
+        android:text="Project"
+        android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+    </ScrollView>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
