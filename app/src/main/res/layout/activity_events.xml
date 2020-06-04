@@ -89,7 +89,14 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/description3"
+    android:id="@+id/description3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="50dp"
+    android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/description4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
