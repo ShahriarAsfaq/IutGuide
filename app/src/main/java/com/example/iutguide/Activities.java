@@ -56,6 +56,8 @@ public class Activities extends AppCompatActivity {
     String date[] = new String[100];
     String time[] = new String[100];
     String description[] = new String[100];
+    String finalCourseName[] = new String[100];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +103,7 @@ public class Activities extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),courseList[i-1],Toast.LENGTH_SHORT).show();
 
                                 assignment = FirebaseDatabase.getInstance().getReference().child("Assignment").child(courseList[i-1]);
+                                final int finalI = i;
                                 assignment.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -112,6 +115,7 @@ public class Activities extends AppCompatActivity {
                                                 dateCheckFinal = dateCheck.substring(0,2)+dateCheck.substring(3,5);
 
                                                 if(currentDay.compareTo(dateCheckFinal)<0){
+                                                    finalCourseName[temp1] = courseList[finalI -1];
                                                     title[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_title").getValue().toString();
                                                     time[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_time").getValue().toString();
                                                     date[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_date").getValue().toString();
@@ -143,7 +147,7 @@ public class Activities extends AppCompatActivity {
                                                 dateCheckFinal = dateCheck.substring(0,2)+dateCheck.substring(3,5);
 
                                                 if(currentDay.compareTo(dateCheckFinal)<0) {
-
+                                                    finalCourseName[temp1] = courseList[finalI -1];
                                                     title[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_title").getValue().toString();
                                                     time[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_time").getValue().toString();
                                                     date[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_date").getValue().toString();
@@ -174,6 +178,7 @@ public class Activities extends AppCompatActivity {
                                                 dateCheckFinal = dateCheck.substring(0,2)+dateCheck.substring(3,5);
 
                                                 if(currentDay.compareTo(dateCheckFinal)<0) {
+                                                    finalCourseName[temp1] = courseList[finalI -1];
                                                     title[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_title").getValue().toString();
                                                     time[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_time").getValue().toString();
                                                     date[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_date").getValue().toString();
@@ -221,12 +226,17 @@ public class Activities extends AppCompatActivity {
 //                Toast.makeText(getApplicationContext(),dateCheck,Toast.LENGTH_SHORT).show();
 
 
-                for (int x=0;x<temp1;x++){
-                    Toast.makeText(getApplicationContext(),title[x],Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(),time[x],Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(),date[x],Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(),description[x],Toast.LENGTH_SHORT).show();
-                }
+//                for (int x=0;x<temp1;x++){
+//                    Toast.makeText(getApplicationContext(),title[x],Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(),time[x],Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(),date[x],Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(),description[x],Toast.LENGTH_SHORT).show();
+//                }
+
+
+                activitiesListview=(ListView) findViewById(R.id.activitiesList);
+                ActivityViewAdapter activityViewAdapter = new ActivityViewAdapter (Activities.this,finalCourseName,title,time,date,description);
+                activitiesListview.setAdapter(activityViewAdapter);
             }
         });
     }

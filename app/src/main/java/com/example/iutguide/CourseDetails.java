@@ -49,7 +49,7 @@ public class CourseDetails extends AppCompatActivity {
                     }
                 }
             });
-           percentage.setOnClickListener(new View.OnClickListener() {
+            percentage.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
                    if(student_course.verify()==1){
@@ -62,6 +62,20 @@ public class CourseDetails extends AppCompatActivity {
                    }
                }
 
+           });
+
+           resourses.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   if(student_course.verify()==1){
+                       Intent intent=new Intent(CourseDetails.this,StudentResource.class);
+                       startActivity(intent);
+                   }
+                   else{
+                       Intent intent=new Intent(CourseDetails.this,TeacherResource.class);
+                       startActivity(intent);
+                   }
+               }
            });
 
         AddClass = findViewById(R.id.AddClassButton);
