@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.iutguide">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StudentResource"></activity>
+        <activity android:name=".TeacherGoogleDrive"></activity>
+        <activity android:name=".StudentResource" />
         <activity android:name=".TeacherResource" />
         <activity android:name=".AddClass" />
         <activity android:name=".DriveLinks" />
@@ -51,5 +50,7 @@
         <activity android:name=".StudentAccount" />
         <activity android:name=".activity_push" />
     </application>
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

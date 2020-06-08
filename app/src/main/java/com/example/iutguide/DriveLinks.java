@@ -53,13 +53,25 @@ public class DriveLinks extends AppCompatActivity {
 
             }
         });
-        /*stdlink.setOnClickListener(new View.OnClickListener() {
+
+
+        stdlink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(DriveLinks.this,GoogleDrive.class);
                 startActivity(intent);
             }
-        });*/
+        });
+
+        techlink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(DriveLinks.this,GoogleDrive.class);
+                startActivity(intent);
+            }
+        });
+
+
         addlinkbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
