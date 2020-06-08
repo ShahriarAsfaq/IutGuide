@@ -17,18 +17,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <Button
-        android:id="@+id/Studentb6"
-        android:layout_width="122dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="148dp"
-        android:background="#329BF0"
-        android:text="Button"
-        android:textColor="#FFFFFF"
-        />
+        <Button
+            android:id="@+id/Studentb6"
+            android:layout_width="122dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="20dp"
+            android:background="#329BF0"
+            android:text="Course"
+            android:textColor="#FFFFFF" />
 
-    <Button
+        <Button
         android:id="@+id/classes"
         android:layout_width="122dp"
         android:layout_height="40dp"
@@ -38,7 +37,7 @@
         android:text="Classes"
         android:textColor="#FFFFFF" />
 
-    <Button
+        <Button
         android:id="@+id/activities"
         android:layout_width="122dp"
         android:layout_height="40dp"
@@ -48,17 +47,7 @@
         android:text="Activities"
         android:textColor="#FFFFFF" />
 
-    <Button
-        android:id="@+id/drive"
-        android:layout_width="122dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="148dp"
-        android:background="#329BF0"
-        android:text="Resources"
-        android:textColor="#FFFFFF" />
-
-    <Button
+        <Button
         android:id="@+id/library"
         android:layout_width="122dp"
         android:layout_height="40dp"
