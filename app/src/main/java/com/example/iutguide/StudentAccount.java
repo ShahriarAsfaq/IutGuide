@@ -19,7 +19,6 @@ public class StudentAccount extends AppCompatActivity {
     private Button studentCourse;
     private Button classes;
     private Button activity;
-    private Button drive;
     private Button library;
     private Button event;
     public String SID;
@@ -60,7 +59,6 @@ public class StudentAccount extends AppCompatActivity {
         });
         classes=(Button)findViewById(R.id.classes);
         activity=(Button)findViewById(R.id.activities);
-        drive=(Button)findViewById(R.id.drive);
         library=(Button)findViewById(R.id.library);
         event=(Button)findViewById(R.id.event);
         classes.setOnClickListener(new View.OnClickListener() {
@@ -74,13 +72,6 @@ public class StudentAccount extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(StudentAccount.this,Activities.class);
-                startActivity(intent);
-            }
-        });
-        drive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(StudentAccount.this,DriveLinks.class);
                 startActivity(intent);
             }
         });
