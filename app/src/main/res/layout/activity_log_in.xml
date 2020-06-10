@@ -30,17 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
-    <Button
-        android:id="@+id/signup"
-        android:layout_width="182dp"
-        android:layout_height="87dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="16dp"
-        android:background="#79BDDA"
-        android:text="SignUp?"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -61,17 +51,24 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/password" />
 
+
     <Button
         android:id="@+id/login"
-        android:layout_width="158dp"
-        android:layout_height="91dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="124dp"
-        android:background="#4F66EB"
+        android:layout_width="162sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="77dp"
+        android:layout_marginBottom="176dp"
+        android:background="@drawable/redbutton"
         android:text="Login"
-        android:textSize="24sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/notAMember"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/rememberme"
+        app:layout_constraintVertical_bias="0.063" />
 
     <CheckBox
         android:id="@+id/rememberme"
@@ -83,5 +80,35 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <TextView
+        android:id="@+id/notAMember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/regular"
+        android:text="Not a Member?"
+        android:textColor="@color/darkgrey"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.946" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="100sp"
+        android:layout_height="22sp"
+        android:background="@drawable/redbutton"
+        android:text="SignUp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toEndOf="@+id/notAMember"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.946" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
