@@ -1,115 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".SignUp"
-android:layout_margin="30dp"
-    android:gravity="center"
-android:orientation="vertical">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogIn"
+    >
 
 
- <ScrollView
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent">
+    <EditText
+        android:id="@+id/signUpName"
+        android:layout_width="236sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="560dp"
+        android:background="@drawable/input_field"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:textAllCaps="false"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/signUpID"
+        android:layout_width="236sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="180dp"
+        android:layout_marginBottom="510dp"
+        android:background="@drawable/input_field"
+        android:ems="10"
+        android:hint="ID"
+        android:inputType="textPersonName"
+        android:textAllCaps="false"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/signUpDepartment"
+        android:layout_width="236sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="230dp"
+        android:layout_marginBottom="460dp"
+        android:background="@drawable/input_field"
+        android:ems="10"
+        android:hint="Department"
+        android:inputType="textPersonName"
+        android:textAllCaps="false"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/signUpName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Name"
-            android:textSize="24dp"/>
+    <EditText
+        android:id="@+id/signUpProgram"
+        android:layout_width="236sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="280dp"
+        android:layout_marginBottom="410dp"
+        android:background="@drawable/input_field"
+        android:ems="10"
+        android:hint="Program (Students)"
+        android:inputType="textPersonName"
+        android:textAllCaps="false"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-
-        <EditText
-            android:id="@+id/signUpID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="ID"
-            android:textSize="24dp"/>
-
-
-
-
-        <EditText
-            android:id="@+id/signUpDepartment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Department"
-            android:textSize="24dp"/>
-
-        <EditText
-            android:id="@+id/signUpProgram"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Program(only for students)"
-            android:textSize="24dp"/>
-
-
-        <EditText
-            android:id="@+id/signUpContract"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Contract No"
-            android:textSize="24dp"/>
-
-        <EditText
-            android:id="@+id/signUpEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Email"
-            android:textSize="24dp"/>
-
-        <EditText
-            android:id="@+id/signupPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Enter new password"
-            android:textSize="24dp"/>
-
-        <CheckBox
-            android:id="@+id/TeacherVarification"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Teacher"
-            android:textSize="22sp" />
-
-        <CheckBox
-            android:id="@+id/StudentVarification"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Student"
-            android:textSize="22sp" />
-
-        <Button
-            android:id="@+id/signUpButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:text="Sign Up"
-            android:textStyle="bold"
-            android:layout_gravity="center" />
+    <EditText
+        android:id="@+id/signUpContract"
+        android:layout_width="236sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="330dp"
+        android:layout_marginBottom="360dp"
+        android:background="@drawable/input_field"
+        android:ems="10"
+        android:hint="Contact Number"
+        android:inputType="textPersonName"
+        android:textAllCaps="false"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
+    <EditText
+        android:id="@+id/signupPassword"
+        android:layout_width="236sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="430dp"
+        android:layout_marginBottom="260dp"
+        android:background="@drawable/input_field"
+        android:ems="10"
+        android:hint="Enter New Password"
+        android:inputType="textPersonName"
+        android:textAllCaps="false"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
 
- </ScrollView>
+    <EditText
+        android:id="@+id/signUpEmail"
+        android:layout_width="236sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="380dp"
+        android:layout_marginBottom="310dp"
+        android:background="@drawable/input_field"
+        android:ems="10"
+        android:hint="Email Address"
+        android:inputType="textPersonName"
+        android:textAllCaps="false"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-</LinearLayout>
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="162sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="530dp"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/redbutton"
+        android:text="SignUp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/TeacherVarification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="210dp"
+        android:text="Teacher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/StudentVarification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="210dp"
+        android:text="Student"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
