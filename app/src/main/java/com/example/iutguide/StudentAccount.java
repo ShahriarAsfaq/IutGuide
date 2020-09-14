@@ -22,6 +22,7 @@ public class StudentAccount extends AppCompatActivity {
     private Button library;
     private Button event;
     public String SID;
+    static int studentverify;
     DatabaseReference reference;
 
 
@@ -34,6 +35,8 @@ public class StudentAccount extends AppCompatActivity {
         studentCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                teacheraccount.teacherverify=0;
+                studentverify=1;
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -91,4 +94,8 @@ public class StudentAccount extends AppCompatActivity {
         });
 
     }
+    int getStudentVerify(){
+        return studentverify;
+    }
+
 }

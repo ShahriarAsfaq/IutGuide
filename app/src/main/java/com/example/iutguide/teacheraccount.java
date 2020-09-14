@@ -20,6 +20,7 @@ public class teacheraccount extends AppCompatActivity {
     private Button TeacherEvents;
     Button teacherAccountB4;
     private Button project;
+    static int teacherverify;
 
 
     @Override
@@ -49,6 +50,8 @@ public class teacheraccount extends AppCompatActivity {
         Courses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StudentAccount.studentverify=0;
+                teacherverify=1;
                 Intent intent=new Intent(teacheraccount.this,Course.class);
                 startActivity(intent);
             }
@@ -62,5 +65,8 @@ public class teacheraccount extends AppCompatActivity {
 
             }
         });
+    }
+    int getTeacherverify(){
+        return teacherverify;
     }
 }

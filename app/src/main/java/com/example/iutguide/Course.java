@@ -36,6 +36,7 @@ public class  Course extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
         LogIn logIn=new LogIn();
+        final CourseDetails courseDetails=new CourseDetails();
         String str;
         str=logIn.StudentId();
         mDatabase=FirebaseDatabase.getInstance().getReference().child("Teacher_Course").child(str);
