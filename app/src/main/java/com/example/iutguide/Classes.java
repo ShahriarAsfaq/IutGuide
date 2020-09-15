@@ -101,8 +101,8 @@ public class Classes extends AppCompatActivity {
 
                                             if (today.compareTo(temp) == 0){
                                                 courseInfo[size] = courseName[finalI -1];
-                                                classStarting[size] = dataSnapshot.child(String.valueOf(j)).child("class starts at").getValue().toString();
-                                                classEnding[size] = dataSnapshot.child(String.valueOf(j)).child("class ends at").getValue().toString();
+                                                classStarting[size] ="Class Starting Time : "+dataSnapshot.child(String.valueOf(j)).child("class starts at").getValue().toString();
+                                                classEnding[size] ="Class Endng Time : "+dataSnapshot.child(String.valueOf(j)).child("class ends at").getValue().toString();
 
 
 //                                               Toast.makeText(getApplicationContext(),courseInfo[size],Toast.LENGTH_SHORT).show();

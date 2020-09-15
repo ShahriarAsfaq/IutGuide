@@ -12,10 +12,9 @@
         android:id="@+id/reloadButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RERELOAD"
-        android:textSize="20dp"
         android:layout_marginLeft="100dp"
-        ></Button>
+        android:text="RELOAD"
+        android:textSize="20dp"></Button>
 
     <ListView
         android:id="@+id/classList"

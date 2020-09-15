@@ -116,10 +116,10 @@ public class Activities extends AppCompatActivity {
 
                                                 if(currentDay.compareTo(dateCheckFinal)<0){
                                                     finalCourseName[temp1] = courseList[finalI -1];
-                                                    title[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_title").getValue().toString();
-                                                    time[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_time").getValue().toString();
-                                                    date[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_date").getValue().toString();
-                                                    description[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_Description").getValue().toString();
+                                                    title[temp1] ="Title : "+ dataSnapshot.child(String.valueOf(j)).child("task_title").getValue().toString();
+                                                    time[temp1] = "Time : "+dataSnapshot.child(String.valueOf(j)).child("task_time").getValue().toString();
+                                                    date[temp1] = "Date : "+dataSnapshot.child(String.valueOf(j)).child("task_date").getValue().toString();
+                                                    description[temp1] ="Description : " +dataSnapshot.child(String.valueOf(j)).child("task_Description").getValue().toString();
                                                     temp1++;
                                                 }
 
@@ -148,10 +148,10 @@ public class Activities extends AppCompatActivity {
 
                                                 if(currentDay.compareTo(dateCheckFinal)<0) {
                                                     finalCourseName[temp1] = courseList[finalI -1];
-                                                    title[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_title").getValue().toString();
-                                                    time[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_time").getValue().toString();
-                                                    date[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_date").getValue().toString();
-                                                    description[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_Description").getValue().toString();
+                                                    title[temp1] = "Title : "+dataSnapshot.child(String.valueOf(j)).child("task_title").getValue().toString();
+                                                    time[temp1] = "Time : "+dataSnapshot.child(String.valueOf(j)).child("task_time").getValue().toString();
+                                                    date[temp1] = "Date : "+dataSnapshot.child(String.valueOf(j)).child("task_date").getValue().toString();
+                                                    description[temp1] = "description : "+dataSnapshot.child(String.valueOf(j)).child("task_Description").getValue().toString();
 
                                                     temp1++;
                                                 }
@@ -179,10 +179,10 @@ public class Activities extends AppCompatActivity {
 
                                                 if(currentDay.compareTo(dateCheckFinal)<0) {
                                                     finalCourseName[temp1] = courseList[finalI -1];
-                                                    title[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_title").getValue().toString();
-                                                    time[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_time").getValue().toString();
-                                                    date[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_date").getValue().toString();
-                                                    description[temp1] = dataSnapshot.child(String.valueOf(j)).child("task_Description").getValue().toString();
+                                                    title[temp1] = "Title : "+dataSnapshot.child(String.valueOf(j)).child("task_title").getValue().toString();
+                                                    time[temp1] = "Time"+dataSnapshot.child(String.valueOf(j)).child("task_time").getValue().toString();
+                                                    date[temp1] = "Date : "+dataSnapshot.child(String.valueOf(j)).child("task_date").getValue().toString();
+                                                    description[temp1] = "Description : "+dataSnapshot.child(String.valueOf(j)).child("task_Description").getValue().toString();
 
                                                     temp1++;
                                                 }
