@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -24,9 +25,12 @@ public class TeacherProject extends AppCompatActivity {
     Intent intent=getIntent();
     private Button addProject;
     DatabaseReference reference1;
+    DatabaseReference reference2;
     private ListView listviewProject;
     ArrayList<String> myArrayList= new ArrayList<>();
 String teacherId;
+String project_list[];
+int cnt=0,temp=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,40 @@ String teacherId;
 
         listviewProject = findViewById(R.id.projectlistview);
         reference1= FirebaseDatabase.getInstance().getReference().child("Teacher_Project").child(teacherId);
+        reference2= FirebaseDatabase.getInstance().getReference().child("Project");
+        reference2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    cnt= (int) dataSnapshot.getChildrenCount();
+                    for(int i=0;i<cnt;i++){
+                        final String str=dataSnapshot.child(String.valueOf((i+1))).getValue().toString();
+                        reference1.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                           if(dataSnapshot.child(str).exists()){
+                               project_list[temp++]=str;
+                               Toast.makeText(getApplicationContext(),project_list[temp-1], Toast.LENGTH_SHORT).show();
+                           }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
         final ArrayAdapter<String> myArrayAdepter=new ArrayAdapter<String>(TeacherProject.this,android.R.layout.simple_list_item_1,myArrayList);
 
 
@@ -56,7 +94,7 @@ String teacherId;
 
 
 
-                reference1.addChildEventListener(new ChildEventListener() {
+                reference2.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                         String value=dataSnapshot.getValue(String.class);
