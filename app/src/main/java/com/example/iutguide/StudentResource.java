@@ -70,7 +70,7 @@ public class StudentResource extends AppCompatActivity {
 
                                     for (int j = 1;j<=listCount;j++){
 
-                                        resourceTitles[temp1] = dataSnapshot.child(String.valueOf(j)).child("resourceTitle").getValue().toString();
+                                        resourceTitles[temp1] =dataSnapshot.child(String.valueOf(j)).child("resourceTitle").getValue().toString();
                                         resourceLinks[temp1] = dataSnapshot.child(String.valueOf(j)).child("resourceLink").getValue().toString();
 
                                         temp1++;
