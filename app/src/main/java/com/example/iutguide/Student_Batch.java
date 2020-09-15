@@ -77,7 +77,7 @@ reference5.addValueEventListener(new ValueEventListener() {
           @Override
           public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                str=studentBatchE1.getText().toString();
-             if(str.length()==6){
+             if(str.length()==5){
                  Toast.makeText(getApplicationContext(),"Batch added",Toast.LENGTH_SHORT).show();
                  batchName=str;
                  reference3=FirebaseDatabase.getInstance().getReference().child("Batch_Course").child(batchName);

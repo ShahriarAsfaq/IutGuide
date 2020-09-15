@@ -56,7 +56,7 @@ DatabaseReference reference4;
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         courseName=dataSnapshot.getValue().toString();
                         Toast.makeText(getApplicationContext(), courseName, Toast.LENGTH_SHORT).show();
-                        reference3=FirebaseDatabase.getInstance().getReference().child("Course_Date").child(courseName);
+                        reference3=FirebaseDatabase.getInstance().getReference().child("Course_Date").child(courseName).child(batchName);
                         reference3.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -96,7 +96,7 @@ DatabaseReference reference4;
 reload.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        reference4=FirebaseDatabase.getInstance().getReference().child("Attendence").child(courseName);
+        reference4=FirebaseDatabase.getInstance().getReference().child("Attendence").child(courseName).child(batchName);
         for(int i=1;i<=cnt;i++){
             final int finalI = i;
             reference4.addValueEventListener(new ValueEventListener() {
@@ -126,6 +126,7 @@ reload.setOnClickListener(new View.OnClickListener() {
             });
 
         }
+        reload.setVisibility(View.INVISIBLE);
 
     }
 });

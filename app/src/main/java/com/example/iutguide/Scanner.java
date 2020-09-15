@@ -56,7 +56,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                            courseName=dataSnapshot.getValue().toString();
                            Toast.makeText(getApplicationContext(),courseName,Toast.LENGTH_SHORT).show();
-                           reference2=FirebaseDatabase.getInstance().getReference().child("Course_Date").child(courseName);
+                           reference2=FirebaseDatabase.getInstance().getReference().child("Course_Date").child(courseName).child(batchName);
                            reference2.addValueEventListener(new ValueEventListener() {
                                @Override
                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -95,13 +95,13 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
     public void handleResult(Result result) {
         qrCode=result.getText();
          if(!qrCode.isEmpty()){
-             reference5=FirebaseDatabase.getInstance().getReference().child("Attendence_QrCode").child(courseName).child(date);
+             reference5=FirebaseDatabase.getInstance().getReference().child("Attendence_QrCode").child(courseName).child(batchName).child(date);
              reference5.addValueEventListener(new ValueEventListener() {
                  @Override
                  public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     String str= dataSnapshot.getValue().toString();
                     if(str.compareTo(qrCode)==0){
-                        reference3=FirebaseDatabase.getInstance().getReference().child("Attendence").child(courseName).child(date).child(studentId);
+                        reference3=FirebaseDatabase.getInstance().getReference().child("Attendence").child(courseName).child(batchName).child(date).child(studentId);
                         reference3.setValue("p");
                         Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_SHORT).show();
                     }

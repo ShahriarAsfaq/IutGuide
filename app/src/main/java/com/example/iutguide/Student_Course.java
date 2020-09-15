@@ -28,7 +28,7 @@ public class Student_Course extends AppCompatActivity {
     int cnt = 0;
     String studentId;
     String str;
-    private static int verify;
+     static int verify;
     DatabaseReference reference;
     ArrayList<String> myArrayList = new ArrayList<>();
 

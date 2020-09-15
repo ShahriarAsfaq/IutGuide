@@ -3,8 +3,11 @@ package com.example.iutguide;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +26,7 @@ public class Attendence extends AppCompatActivity {
     Intent intent = getIntent();
     private static final String TAG = "Attendence";
     private TextView mDisplayDate;
+    private EditText attendenceBatchSelect;
     DatabaseReference reference;
     DatabaseReference reference2;
     DatabaseReference reference3;
@@ -35,6 +39,7 @@ public class Attendence extends AppCompatActivity {
     int cnt4 = 1;
     String qrCode;
     String studentlist[];
+    String str,batchName;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     @Override
@@ -42,44 +47,67 @@ public class Attendence extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendence);
         LogIn logIn = new LogIn();
-        String ID = logIn.StudentId();
+        final String ID = logIn.StudentId();
         Course course = new Course();
         final int position = course.getposition();
         QrCodeGenerator qrCodeGenerator = new QrCodeGenerator();
         qrCode = qrCodeGenerator.getQrCode();
-
-        reference3 = FirebaseDatabase.getInstance().getReference().child("Attendence");
-        reference2 = FirebaseDatabase.getInstance().getReference().child("Teacher_Course").child(ID).child(String.valueOf(position));
-        reference2.addValueEventListener(new ValueEventListener() {
+        attendenceBatchSelect=findViewById(R.id.attendenceBatchSelect);
+        attendenceBatchSelect.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                courseId = dataSnapshot.child("courseId").getValue().toString();
-                reference4 = FirebaseDatabase.getInstance().getReference().child("Course_Date").child(courseId);
-                reference4.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            cnt4 = (int) dataSnapshot.getChildrenCount();
-                            cnt4++;
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-                Toast.makeText(getApplicationContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), courseId, Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                str=attendenceBatchSelect.getText().toString();
+                if(str.length()==5) {
+                    Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
+                    batchName = str;
+                    reference2 = FirebaseDatabase.getInstance().getReference().child("Teacher_Course").child(ID).child(String.valueOf(position));
+                    reference2.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            courseId = dataSnapshot.child("courseId").getValue().toString();
+                            reference4 = FirebaseDatabase.getInstance().getReference().child("Course_Date").child(courseId).child(batchName);
+                            reference4.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.child(batchName).exists()) {
+                                        cnt4 = (int) dataSnapshot.getChildrenCount();
+                                        cnt4++;
+
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                            Toast.makeText(getApplicationContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), courseId, Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
 
             }
         });
+
+        reference3 = FirebaseDatabase.getInstance().getReference().child("Attendence");
 
 
         mDisplayDate = (TextView) findViewById(R.id.attendenceT1);
@@ -87,7 +115,7 @@ public class Attendence extends AppCompatActivity {
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reference = FirebaseDatabase.getInstance().getReference().child("Course_Student").child(courseId);
+                reference = FirebaseDatabase.getInstance().getReference().child("Batch_Student").child(batchName);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -141,9 +169,9 @@ public class Attendence extends AppCompatActivity {
                 reference4.child(String.valueOf(cnt4)).setValue(date);
 
                 for (int i = 1; i <= cnt; i++) {
-                    reference3.child(courseId).child(date).child(studentlist[i - 1]).setValue("A");
+                    reference3.child(courseId).child(batchName).child(date).child(studentlist[i - 1]).setValue("A");
                 }
-                reference5 = FirebaseDatabase.getInstance().getReference().child("Attendence_QrCode").child(courseId).child(cDate);
+                reference5 = FirebaseDatabase.getInstance().getReference().child("Attendence_QrCode").child(courseId).child(batchName).child(cDate);
                 reference5.setValue(qrCode);
             }
         };

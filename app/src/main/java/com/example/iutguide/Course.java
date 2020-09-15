@@ -73,7 +73,7 @@ public class  Course extends AppCompatActivity {
                for(int i=0;i<cnt;i++){
                 if(position==i) {
                     position1=(i+1);
-                    verify=2;
+                    Student_Course.verify=0;
                     Toast.makeText(getApplicationContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
                     Intent intent3 = new Intent(getApplicationContext(), CourseDetails.class);
                     startActivity(intent3);
