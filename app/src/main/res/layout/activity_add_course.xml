@@ -46,6 +46,8 @@
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:text="add"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"
             android:layout_gravity="center"
 
             />

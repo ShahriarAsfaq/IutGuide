@@ -67,16 +67,6 @@
         android:text="Events"
         android:textColor="#FFFFFF" />
 
-    <Button
-        android:id="@+id/studentProject"
-        android:layout_width="122dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="148dp"
-        android:background="#329BF0"
-        android:text="Project"
-        android:textColor="#FFFFFF" />
-
     </LinearLayout>
     </ScrollView>
 

@@ -34,20 +34,25 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginRight="80dp"
-            android:text="math" />
+            android:text="math"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
         <Button
             android:id="@+id/BTb2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Management"/>
+            android:text="Management"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <Button
             android:id="@+id/BTb3"
@@ -55,13 +60,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginRight="80dp"
-            android:text="algorithm" />
+            android:text="algorithm"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
         <Button
             android:id="@+id/BTb4"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Geometry"/>
+            android:text="Geometry"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
     <LinearLayout
@@ -75,13 +84,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginRight="80dp"
-            android:text="Design" />
+            android:text="Design"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
         <Button
             android:id="@+id/BTb6"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Software"/>
+            android:text="Software"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
     <LinearLayout
@@ -95,13 +108,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginRight="75dp"
-            android:text="development" />
+            android:text="development"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
         <Button
             android:id="@+id/BTb8"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="bba"/>
+            android:text="bba"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
     <LinearLayout
@@ -115,13 +132,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginRight="80dp"
-            android:text="history" />
+            android:text="history"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
         <Button
             android:id="@+id/BTb10"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="physics"/>
+            android:text="physics"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
     <LinearLayout
@@ -135,13 +156,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginRight="80dp"
-            android:text="history" />
+            android:text="history"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
         <Button
             android:id="@+id/BTb12"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="physics"/>
+            android:text="physics"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 

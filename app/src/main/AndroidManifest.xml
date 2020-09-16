@@ -12,8 +12,6 @@
         <activity android:name=".StudentResource" />
         <activity android:name=".TeacherResource" />
         <activity android:name=".AddClass" />
-        <activity android:name=".Project" />
-        <activity android:name=".TeacherProject" />
         <activity android:name=".QrCodeGenerator" />
         <activity android:name=".TeacherPercentage" />
         <activity android:name=".StudentPercentage" />
@@ -45,7 +43,6 @@
         <activity android:name=".Activities" />
         <activity android:name=".Classes" />
         <activity android:name=".StudentAccount" />
-        <activity android:name=".activity_push" />
     </application>
 
     <uses-permission android:name="android.permission.CAMERA" />

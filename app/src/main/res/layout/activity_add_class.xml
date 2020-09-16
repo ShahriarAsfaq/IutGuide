@@ -78,6 +78,8 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:text="ADD CLASS"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         ></Button>
 
 

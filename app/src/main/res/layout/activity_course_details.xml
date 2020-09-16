@@ -16,6 +16,8 @@
         android:layout_marginTop="30dp"
         android:textSize="25dp"
         android:text="ATTENDENCE"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         />
     <Button
         android:id="@+id/ResourcesButton"
@@ -25,6 +27,8 @@
         android:layout_marginTop="30dp"
         android:textSize="25dp"
         android:text="RESOURCES"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         />
     <Button
         android:id="@+id/PercentageButton"
@@ -34,6 +38,8 @@
         android:layout_marginTop="30dp"
         android:textSize="25dp"
         android:text="PERCENTAGE"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         />
     <Button
         android:id="@+id/TasksButton"
@@ -43,6 +49,8 @@
         android:layout_marginTop="30dp"
         android:textSize="25dp"
         android:text="TASKS"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         />
 
 
@@ -54,6 +62,8 @@
         android:layout_marginTop="30dp"
         android:textSize="25dp"
         android:text="ADD CLASS"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         />
 
 

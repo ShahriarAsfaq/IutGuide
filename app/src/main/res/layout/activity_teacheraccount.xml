@@ -20,15 +20,6 @@
         ></Button>
 
     <Button
-        android:id="@+id/project"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:text="Projects"
-        android:textSize="24dp"
-        android:layout_marginBottom="40dp"
-        android:layout_gravity="center"
-        ></Button>
-    <Button
         android:id="@+id/teacherevents"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
