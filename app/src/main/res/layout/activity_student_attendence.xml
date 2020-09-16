@@ -13,6 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scan QR and  Bar Code"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         android:textSize="16sp"
         />
   <TextView

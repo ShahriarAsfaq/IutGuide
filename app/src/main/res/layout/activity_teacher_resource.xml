@@ -32,6 +32,8 @@
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:text="ADD"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         ></Button>
 
     <Button
@@ -40,6 +42,8 @@
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:text="ADD"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         ></Button>
 
 

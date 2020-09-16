@@ -20,7 +20,8 @@
             android:text="PERCENTAGE :"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="#030303"/>
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"/>
         <TextView
             android:id="@+id/StudentpercentageT1"
             android:layout_width="100dp"
@@ -41,6 +42,8 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:text="RELOAD"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         />

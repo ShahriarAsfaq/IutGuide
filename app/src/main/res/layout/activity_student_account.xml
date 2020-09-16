@@ -23,9 +23,10 @@
             android:layout_height="40dp"
             android:layout_marginStart="148dp"
             android:layout_marginTop="20dp"
-            android:background="#329BF0"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"
             android:text="Course"
-            android:textColor="#FFFFFF" />
+             />
 
         <Button
         android:id="@+id/classes"
@@ -33,9 +34,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="148dp"
-        android:background="#329BF0"
+
         android:text="Classes"
-        android:textColor="#FFFFFF" />
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white" />
 
         <Button
         android:id="@+id/activities"
@@ -43,9 +45,11 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="148dp"
-        android:background="#329BF0"
+
         android:text="Activities"
-        android:textColor="#FFFFFF" />
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white"
+         />
 
         <Button
         android:id="@+id/library"
@@ -53,9 +57,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="148dp"
-        android:background="#329BF0"
+
         android:text="Library"
-        android:textColor="#FFFFFF" />
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/white" />
 
     <Button
         android:id="@+id/event"
@@ -63,9 +68,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="148dp"
-        android:background="#329BF0"
+
         android:text="Events"
-        android:textColor="#FFFFFF" />
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white" />
 
     </LinearLayout>
     </ScrollView>
