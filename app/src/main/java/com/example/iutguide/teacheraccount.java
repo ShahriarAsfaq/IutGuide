@@ -19,6 +19,7 @@ public class teacheraccount extends AppCompatActivity {
     private Button Courses;
     private Button TeacherEvents;
     Button teacherAccountB4;
+    Button upcomingevent;
     static int teacherverify;
 
 
@@ -56,6 +57,14 @@ public class teacheraccount extends AppCompatActivity {
             }
         });
 
+        upcomingevent=(Button)findViewById(R.id.teacherAccountB5);
+        upcomingevent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(teacheraccount.this,Upcoming_teacher_activities.class);
+                startActivity(intent);
+            }
+        });
 
     }
     int getTeacherverify(){

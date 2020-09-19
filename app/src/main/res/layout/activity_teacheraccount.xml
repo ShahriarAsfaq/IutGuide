@@ -44,23 +44,18 @@
        android:textSize="24dp"
        />
 
-    <TextView
-        android:id="@+id/textView01"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/teacherAccountB5"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:textSize="24dp"
-        android:text="CSE 18 Quiz (2 pm 03.02.20)"
-        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
+        android:text="Upcoming events"
+        android:background="@drawable/btn_selector"
+        android:textColor="@color/white"
+        android:textSize="24dp" />
 
-        />`
 
-    <TextView
-        android:id="@+id/textView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24dp"
-        android:text="CSE 18 Quiz (3:15 pm 12.02.20)"
-        />
 
 
 </LinearLayout>
