@@ -128,7 +128,7 @@ public class LogIn extends AppCompatActivity {
                                         databasePosition=i;
                                         SID = dataSnapshot.child(String.valueOf(i)).child("ID").getValue().toString();
                                         Toast.makeText(getApplicationContext(),SID, Toast.LENGTH_SHORT).show();
-                                        Intent intent3=new Intent(LogIn.this,StudentLogin.class);
+                                        Intent intent3=new Intent(LogIn.this,StudentAccount.class);
                                         startActivity(intent3);
                                         break;
 
@@ -158,7 +158,7 @@ public class LogIn extends AppCompatActivity {
                                         databasePosition=i;
                                         SID = dataSnapshot.child(String.valueOf(i)).child("ID").getValue().toString();
                                         Toast.makeText(getApplicationContext(),SID, Toast.LENGTH_SHORT).show();
-                                        Intent intent4=new Intent(LogIn.this,TeacherLogin.class);
+                                        Intent intent4=new Intent(LogIn.this,teacheraccount.class);
                                         startActivity(intent4);
                                         break;
                                     }
