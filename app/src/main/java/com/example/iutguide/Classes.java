@@ -37,7 +37,6 @@ public class Classes extends AppCompatActivity {
     String[] classStarting = new String[100];
     String[] classEnding = new String[100];
     int size = 0;
-    private Button reload;
 
     private String[] temp1,temp2,temp3;
 
@@ -103,20 +102,19 @@ public class Classes extends AppCompatActivity {
                                                 courseInfo[size] = courseName[finalI -1];
                                                 classStarting[size] ="Class Starting Time : "+dataSnapshot.child(String.valueOf(j)).child("class starts at").getValue().toString();
                                                 classEnding[size] ="Class Endng Time : "+dataSnapshot.child(String.valueOf(j)).child("class ends at").getValue().toString();
-
-
-//                                               Toast.makeText(getApplicationContext(),courseInfo[size],Toast.LENGTH_SHORT).show();
-//                                               Toast.makeText(getApplicationContext(),classStarting[size],Toast.LENGTH_SHORT).show();
-//                                               Toast.makeText(getApplicationContext(),classEnding[size],Toast.LENGTH_SHORT).show();
-
-
-
+                                                
                                                 size++;
 
                                             }
                                         }
                                     }
+
+                                    classList=(ListView) findViewById(R.id.classList);
+                                    ClassViewAdapter classViewAdapter = new ClassViewAdapter (Classes.this,courseInfo,classStarting,classEnding);
+                                    classList.setAdapter(classViewAdapter);
+
                                 }
+
 
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -143,25 +141,10 @@ public class Classes extends AppCompatActivity {
 
 
 
-    reload = findViewById(R.id.reloadButton);
-    reload.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
 
-//            for(int k =0;k<size;k++){
-//                Toast.makeText(getApplicationContext(),courseInfo[k],Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(),classStarting[k],Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(),classEnding[k],Toast.LENGTH_SHORT).show();
-//            }
-
-
-            classList=(ListView) findViewById(R.id.classList);
-            ClassViewAdapter classViewAdapter = new ClassViewAdapter (Classes.this,courseInfo,classStarting,classEnding);
-            classList.setAdapter(classViewAdapter);
-        }
-    });
 
 
 
     }
+
 }
