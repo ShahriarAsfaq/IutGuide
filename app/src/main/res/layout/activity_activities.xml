@@ -8,15 +8,7 @@
     android:layout_margin="20dp"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/reloadActivitiesButton"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Reload"
-        android:background="@drawable/btn_selector"
-        android:textColor="@color/white">
 
-    </Button>
 
     <ListView
         android:id="@+id/activitiesList"

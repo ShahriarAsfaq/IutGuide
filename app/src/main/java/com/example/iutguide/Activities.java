@@ -24,7 +24,6 @@ import java.util.Calendar;
 public class Activities extends AppCompatActivity {
     Intent intent= getIntent();
 
-    private Button reloadButton;
     private ListView activitiesListview;
     private DatabaseReference studentBatch;
     private DatabaseReference courses;
@@ -85,6 +84,11 @@ public class Activities extends AppCompatActivity {
         LogIn logIn=new LogIn();
         String SID= logIn.StudentId();
 
+        activitiesListview=(ListView) findViewById(R.id.activitiesList);
+        final ActivityViewAdapter activityViewAdapter = new ActivityViewAdapter (Activities.this,finalCourseName,title,time,date,description);
+        activitiesListview.setAdapter(activityViewAdapter);
+
+
         studentBatch= FirebaseDatabase.getInstance().getReference().child("Batch_Selected").child(SID);
         studentBatch.addValueEventListener(new ValueEventListener() {
             @Override
@@ -126,6 +130,8 @@ public class Activities extends AppCompatActivity {
 
                                             }
                                         }
+
+                                        activityViewAdapter.notifyDataSetChanged();
 
                                     }
 
@@ -216,28 +222,6 @@ public class Activities extends AppCompatActivity {
 
 
 
-        reloadButton = findViewById(R.id.reloadActivitiesButton);
-        activitiesListview = findViewById(R.id.activitiesList);
 
-        reloadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-//                Toast.makeText(getApplicationContext(),dateCheck,Toast.LENGTH_SHORT).show();
-
-
-//                for (int x=0;x<temp1;x++){
-//                    Toast.makeText(getApplicationContext(),title[x],Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(getApplicationContext(),time[x],Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(getApplicationContext(),date[x],Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(getApplicationContext(),description[x],Toast.LENGTH_SHORT).show();
-//                }
-
-
-                activitiesListview=(ListView) findViewById(R.id.activitiesList);
-                ActivityViewAdapter activityViewAdapter = new ActivityViewAdapter (Activities.this,finalCourseName,title,time,date,description);
-                activitiesListview.setAdapter(activityViewAdapter);
-            }
-        });
     }
 }
