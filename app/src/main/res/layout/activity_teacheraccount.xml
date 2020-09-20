@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="40dp"
-        android:text="Upcoming events"
+        android:text="Upcoming Activities"
         android:background="@drawable/btn_selector"
         android:textColor="@color/white"
         android:textSize="24dp" />
